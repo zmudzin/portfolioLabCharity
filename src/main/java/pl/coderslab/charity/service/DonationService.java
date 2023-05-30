@@ -28,4 +28,6 @@ public class DonationService {
         donationRepository.deleteById(id);
     }
 
+    public List<Donation> findAllByInstitutionId(Long id){return donationRepository.findAllByInstitutionId(id);}
+
 }
