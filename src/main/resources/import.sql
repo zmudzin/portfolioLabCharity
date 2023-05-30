@@ -26,9 +26,3 @@ insert into donations_categories (donation_id, category_id) values (3,2);
 insert into donations_categories (donation_id, category_id) values (4,1);
 insert into donations_categories (donation_id, category_id) values (5,3);
 insert into donations_categories (donation_id, category_id) values (5,5);
-
-insert into donation_institution (institution_id, donation_id) values (1,2);
-insert into donation_institution (institution_id, donation_id) values (2,1);
-insert into donation_institution (institution_id, donation_id) values (3,3)
-insert into donation_institution (institution_id, donation_id) values (1,4);
-insert into donation_institution (institution_id, donation_id) values (4,5);;

@@ -13,10 +13,10 @@ public class InstitutionService {
         this.institutionRepository = institutionRepository;
     }
 
-    public List<Institution> getAllCategories() {
+    public List<Institution> getAllInstitutions() {
         return institutionRepository.findAll();
     }
-    public Optional<Institution> getCategoryById(Long id) {
+    public Optional<Institution> getInstitutionById(Long id) {
         return institutionRepository.findById(id);
     }
     public Institution createInstitution(Institution institution) {
