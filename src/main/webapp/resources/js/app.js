@@ -163,7 +163,34 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
-      // TODO: get data from inputs and show them in summary
+      if (this.currentStep === 5) {
+        this.showSummary();
+      }
+    }
+
+    showSummary() {
+
+      const bags = document.getElementById("myQuantity").value;
+      const categoryInput = document.getElementById("myCategories");
+      const categoryName = categoryInput.innerText;
+      const selectedInstitutionRadio = form.querySelector('input[name="institution.id"]:checked');
+      const institutionName = selectedInstitutionRadio.nextElementSibling.querySelector('.title').innerText;
+      const street = form.querySelector('input[name="street"]').value;
+      const city = form.querySelector('input[name="city"]').value;
+      const zipCode = form.querySelector('input[name="zipCode"]').value;
+      const pickUpDate = form.querySelector('input[name="pickUpDate"]').value;
+      const pickUpTime = form.querySelector('input[name="pickUpTime"]').value;
+      const pickUpComment = form.querySelector('textarea[name="pickUpComment"]').value;
+
+      document.getElementById("bagsSummary").innerText = bags + " worki z "+ categoryName + " w dobrym stanie dla dzieci";
+      document.getElementById("institutionSummary").innerText = "Dla fundacji " + institutionName;
+      document.getElementById("addressSummary").innerText = `${street}, ${city}, ${zipCode}`;
+      document.getElementById("pickupSummary").innerText = `${pickUpDate}, ${pickUpTime}, ${pickUpComment}`;
+    }
+
+    submit(e) {
+      form.submit()
+      // TODO: Submit the form to the server or perform any desired action
     }
 
   }

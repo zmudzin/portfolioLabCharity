@@ -44,6 +44,6 @@ model.addAttribute("donation", new Donation());
     @PostMapping("/form")
     public String addDonation(Donation donation){
         donationService.createDonation(donation);
-        return "redirect:/";}
+        return "form-confirmation";}
 
 }
