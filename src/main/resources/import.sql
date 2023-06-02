@@ -9,6 +9,11 @@ INSERT INTO institutions (name, description) VALUES ('Fundacja "Radosna Przyszł
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Zdrowe Pokolenie"', 'Fundacja prowadząca programy edukacyjne na temat zdrowego stylu życia dla dzieci i młodzieży.');
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Kreatywny Rozwój"', 'Fundacja wspierająca rozwój kreatywności u dzieci i młodzieży poprzez organizowanie różnego rodzaju warsztatów.');
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Ekologiczny Świat"', 'Fundacja promująca ekologiczne style życia i działania na rzecz ochrony środowiska.');
+INSERT INTO institutions (name, description) VALUES ('Fundacja "Dobry Start"', 'Fundacja wspierająca dzieci w starcie do edukacji szkolnej.');
+INSERT INTO institutions (name, description) VALUES ('Fundacja "Dobre Serce"', 'Fundacja pomagająca osobom w potrzebie poprzez dostarczanie żywności i ubrań.');
+INSERT INTO institutions (name, description) VALUES ('Fundacja "Młode Talenty"', 'Fundacja wspierająca rozwój talentów artystycznych u dzieci i młodzieży.');
+INSERT INTO institutions (name, description) VALUES ('Fundacja "Senior Aktywny"', 'Fundacja organizująca zajęcia i wydarzenia dla seniorów, promująca aktywny styl życia.');
+INSERT INTO institutions (name, description) VALUES ('Fundacja "Nadzieja na Jutro"', 'Fundacja pomagająca osobom bezdomnym w znalezieniu dachu nad głową i wsparciu.');
 
 
 

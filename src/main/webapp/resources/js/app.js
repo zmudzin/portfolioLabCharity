@@ -171,8 +171,14 @@ document.addEventListener("DOMContentLoaded", function() {
     showSummary() {
 
       const bags = document.getElementById("myQuantity").value;
+
       const categoryInput = document.getElementById("myCategories");
       const categoryName = categoryInput.innerText;
+
+      const categoryElements = form.querySelectorAll('input[name="myCategories"]:checked');
+      const selectedCategories = Array.from(categoryElements).map(element => element.dataset.categoryName);
+      const selectedCategoriesString = selectedCategories.join(', ');
+
       const selectedInstitutionRadio = form.querySelector('input[name="institution.id"]:checked');
       const institutionName = selectedInstitutionRadio.nextElementSibling.querySelector('.title').innerText;
       const street = form.querySelector('input[name="street"]').value;
@@ -182,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const pickUpTime = form.querySelector('input[name="pickUpTime"]').value;
       const pickUpComment = form.querySelector('textarea[name="pickUpComment"]').value;
 
-      document.getElementById("bagsSummary").innerText = bags + " worki z "+ categoryName + " w dobrym stanie dla dzieci";
+      document.getElementById("bagsSummary").innerText ="Ilość worków: "+ bags + " kategorie: "+categoryElements+ selectedCategories+ selectedCategoriesString+" w dobrym stanie";
       document.getElementById("institutionSummary").innerText = "Dla fundacji " + institutionName;
       document.getElementById("addressSummary").innerText = `${street}, ${city}, ${zipCode}`;
       document.getElementById("pickupSummary").innerText = `${pickUpDate}, ${pickUpTime}, ${pickUpComment}`;

@@ -600,7 +600,8 @@ form .form-group--checkbox label {
 /* line 58, scss/modules/_forms.scss */
 form .form-group--checkbox input {
   position: absolute;
-
+  /*opacity: 1;*/
+  /*display: none;*/
 }
 
 /* line 64, scss/modules/_forms.scss */

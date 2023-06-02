@@ -66,7 +66,7 @@
           <div class="form-group form-group--checkbox">
             <label>
               <form:checkbox path="categories" value="${category.id}" />
-                <%--                  <span class="checkbox"></span>--%>
+<%--                                  <span class="checkbox"></span>--%>
               <span class="description" id="myCategories">${category.name}</span>
             </label>
           </div>
@@ -102,7 +102,7 @@
           <div class="form-group form-group--checkbox">
             <form:label path="institution.id">
               <form:radiobutton path="institution.id" value="${institution.id}" />
-              <%--                  <span class="checkbox radio"></span>--%>
+<%--                                <span class="checkbox radio"></span>--%>
               <span class="description">
                     <div class="title" id="myInstitution">${institution.name}</div>
                     <div class="subtitle">

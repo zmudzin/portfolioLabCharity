@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface DonationRepository extends JpaRepository<Donation,Long> {
 
-    @EntityGraph(attributePaths = {"institutions"})
-    List<Donation> findAllByInstitutionId(Long id);
 }

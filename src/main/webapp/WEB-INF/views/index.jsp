@@ -25,7 +25,7 @@
         </div>
 
         <div class="stats--item">
-            <em>${donations.size()}</em>
+            <em>${donationSize}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
@@ -83,22 +83,27 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-<c:forEach var="institution" items="${institutions}" varStatus="status">
-    <c:if test="${status.index < 4}">
-        <c:if test="${status.index % 2 == 0}">
             <li>
-        </c:if>
                 <div class="col">
-                    <div class="title">${institution.name}</div>
-                    <div class="subtitle">Cel i misja: ${institution.description}</div>
+                    <div class="title">${institutions[0].name}</div>
+                    <div class="subtitle">Cel i misja: ${institutions[0].description}</div>
                 </div>
-        <c:if test="${status.index % 2 == 1}">
-        </li>
-        </c:if>
-    </c:if>
-</c:forEach>
+                <div class="col">
+                    <div class="title">${institutions[1].name}</div>
+                    <div class="subtitle">Cel i misja: ${institutions[1].description}</div>
+                </div>
+            </li>
+            <li>
+                <div class="col">
+                    <div class="title">${institutions[2].name}</div>
+                    <div class="subtitle">Cel i misja: ${institutions[2].description}</div>
+                </div>
+                <div class="col">
+                    <div class="title">${institutions[3].name}</div>
+                    <div class="subtitle">Cel i misja: ${institutions[3].description}</div>
+                </div>
+            </li>
         </ul>
     </div>
-
 </section>
 <%@ include file="headfoot/footer.jsp" %>

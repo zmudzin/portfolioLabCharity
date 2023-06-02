@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
-import pl.coderslab.charity.repository.CategoryRepository;
-import pl.coderslab.charity.repository.DonationRepository;
-import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.service.CategoryService;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
@@ -38,7 +35,7 @@ public class FormController {
     public Collection<Category> categories(){return categoryService.getAllCategories();}
     @GetMapping("/form")
     public String addDonation(Model model){
-model.addAttribute("donation", new Donation());
+        model.addAttribute("donation", new Donation());
         return "form";
     }
     @PostMapping("/form")
