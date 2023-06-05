@@ -2,12 +2,11 @@ package pl.coderslab.charity.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
@@ -21,7 +20,8 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Min(value = 1)
+    @Positive
+    @NotNull
     private Integer quantity;
     @NotEmpty(message = "Wybierz co chcesz oddać.")
     @ManyToMany
@@ -34,19 +34,18 @@ public class Donation {
     @ManyToOne
     @NotNull(message = "Wybierz fundację, której chcesz pomóc.")
     private Institution institution;
-    @NotEmpty(message = "uzupełnij Ulicę")
-    @NotNull(message = "uzupełnij Ulicę")
+    @NotBlank(message = "uzupełnij Ulicę")
     private String street;
-    @NotEmpty(message = "uzupełnij Miasto")
-    @NotNull(message = "uzupełnij Miasto")
+    @NotBlank(message = "uzupełnij Miasto")
     private String city;
-    @NotEmpty(message = "uzupełnij kod pocztowy")
-    @NotNull(message = "uzupełnij kod pocztowy")
+    @NotBlank(message = "uzupełnij kod pocztowy")
     private String zipCode;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Future
     @NotNull(message = "uzupełnij datę odbioru")
     private LocalDate pickUpDate;
     @NotNull(message = "uzupełnij godzinę odbioru")
     private LocalTime pickUpTime;
+    @Length(max = 250)
     private String pickUpComment;
 }
