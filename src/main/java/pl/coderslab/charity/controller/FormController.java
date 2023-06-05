@@ -44,7 +44,7 @@ public class FormController {
     }
 
     @GetMapping("/form")
-    public String addDonation(Model model) {
+    public String showDonation(Model model) {
         model.addAttribute("donation", new Donation());
         return "form";
     }
@@ -52,15 +52,15 @@ public class FormController {
     @PostMapping("/form")
     public String addDonation(@Valid Donation donation, BindingResult result) {
         if (result.hasErrors()) {
-                return "/form";
+            return "/form";
         }
-            donationService.createDonation(donation);
-            return "redirect:/form_confirmation";
-        }
-
-        @RequestMapping("/form_confirmation")
-    public String confirm(){
-        return "form-confirmation";
-        }
-
+        donationService.createDonation(donation);
+        return "redirect:/form_confirmation";
     }
+
+    @RequestMapping("/form_confirmation")
+    public String confirm() {
+        return "form-confirmation";
+    }
+
+}

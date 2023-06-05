@@ -3,15 +3,15 @@
 <%@ include file="headfoot/header.jsp" %>
 <header class="header--main-page">
     <nav class="container container--70">
-</nav>
-<div class="slogan container container--90">
-    <div class="slogan--item">
-        <h1>
-            Zacznij pomagać!<br/>
-            Oddaj niechciane rzeczy w zaufane ręce
-        </h1>
+    </nav>
+    <div class="slogan container container--90">
+        <div class="slogan--item">
+            <h1>
+                Zacznij pomagać!<br/>
+                Oddaj niechciane rzeczy w zaufane ręce
+            </h1>
+        </div>
     </div>
-</div>
 </header>
 
 <section class="stats">
@@ -34,7 +34,7 @@
     </div>
 </section>
 
-<section class="steps" id ="stepsTarget">
+<section class="steps" id="stepsTarget">
     <h2>Wystarczą 4 proste kroki</h2>
 
     <div class="steps--container">
@@ -78,7 +78,7 @@
     <h2>Komu pomagamy?</h2>
 
     <!-- SLIDE 1 -->
-    <div class="help--slides active" data-id="1" >
+    <div class="help--slides active" data-id="1">
         <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
             Możesz sprawdzić czym się zajmują.</p>
 

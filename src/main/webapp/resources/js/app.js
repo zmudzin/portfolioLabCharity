@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$prev = form.querySelectorAll(".prev-step");
       this.$step = form.querySelector(".form--steps-counter span");
       this.currentStep = 1;
+      this.valid = true;
 
       this.$stepInstructions = form.querySelectorAll(".form--steps-instructions p");
       const $stepForms = form.querySelectorAll("form > div");
@@ -125,6 +126,49 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$next.forEach(btn => {
         btn.addEventListener("click", e => {
           e.preventDefault();
+          if (this.currentStep === 1) {
+            const categoryElements = this.$form.querySelectorAll('input[name="categories"]:checked');
+            if (categoryElements.length === 0) {
+              // Jeśli nie wybrano żadnej kategorii, zatrzymaj się i wyświetl błąd
+              alert("Wybierz co chcesz oddać");
+              return;
+            }
+          }
+          if (this.currentStep === 2) {
+            const bags = document.getElementById("quantity").value;
+            if (bags === "") {
+              // Jeśli nie podano liczby worków, zatrzymaj się i wyświetl błąd
+              alert("Podaj ilość worków");
+              return;
+            }
+          }
+          if (this.currentStep === 3) {
+            const institutionElements = this.$form.querySelectorAll('input[name="institution"]:checked');
+            if (institutionElements.length === 0) {
+              // Jeśli nie podano ilości elementów, zatrzymaj się i wyświetl błąd
+              alert("Wybierz fundację, której chcesz przekazać dary");
+              return;
+            }
+          }
+          if (this.currentStep === 4) {
+            const streetInput = document.querySelector('input[name="street"]');
+            const cityInput = document.querySelector('input[name="city"]');
+            const zipCodeInput = document.querySelector('input[name="zipCode"]');
+            const pickUpDateInput = document.querySelector('input[name="pickUpDate"]');
+            const pickUpTimeInput = document.querySelector('input[name="pickUpTime"]');
+
+            const street = streetInput.value.trim();
+            const city = cityInput.value.trim();
+            const zipCode = zipCodeInput.value.trim();
+            const pickUpDate = pickUpDateInput.value.trim();
+            const pickUpTime = pickUpTimeInput.value.trim();
+            if (street === "" || city === "" || zipCode === "" || pickUpDate === "" || pickUpTime === "") {
+              // Wyświetl błąd, jeśli któreś pole jest puste
+              alert("Proszę wypełnić wszystkie pola");
+              return;
+            }
+          }
+
           this.currentStep++;
           this.updateForm();
         });
@@ -151,8 +195,6 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.innerText = this.currentStep;
 
       // TODO: Validation
-
-
 
       this.slides.forEach(slide => {
         slide.classList.remove("active");
