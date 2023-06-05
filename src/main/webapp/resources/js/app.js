@@ -245,4 +245,20 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
+
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const passwordInput = document.getElementById("password");
+  const passwordConfirmInput = document.getElementById("passwordConfirm");
+  const registerForm = document.getElementById("registerForm");
+
+  registerForm.addEventListener("submit", function(event) {
+    if (passwordInput.value !== passwordConfirmInput.value) {
+      event.preventDefault();
+      alert("Hasło i potwierdzenie hasła nie są identyczne");
+    }
+  });
 });

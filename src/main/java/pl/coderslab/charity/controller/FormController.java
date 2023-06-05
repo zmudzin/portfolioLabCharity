@@ -22,7 +22,6 @@ import java.util.Collection;
 @Controller
 public class FormController {
 
-    private static final Logger logger = LoggerFactory.getLogger(FormController.class);
     private DonationService donationService;
     private CategoryService categoryService;
     private InstitutionService institutionService;
@@ -59,7 +58,7 @@ public class FormController {
     }
 
     @RequestMapping("/form_confirmation")
-    public String confirm() {
+    public String confirmDonation() {
         return "form-confirmation";
     }
 
