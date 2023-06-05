@@ -156,19 +156,26 @@ document.addEventListener("DOMContentLoaded", function () {
                         const cityInput = document.querySelector('input[name="city"]');
                         const zipCodeInput = document.querySelector('input[name="zipCode"]');
                         const pickUpDateInput = document.querySelector('input[name="pickUpDate"]');
+                        const pickUpDateValue = pickUpDateInput.value;
                         const pickUpTimeInput = document.querySelector('input[name="pickUpTime"]');
 
-                        const street = streetInput.value.trim();
-                        const city = cityInput.value.trim();
-                        const zipCode = zipCodeInput.value.trim();
-                        const pickUpDate = pickUpDateInput.value.trim();
-                        const pickUpTime = pickUpTimeInput.value.trim();
-                        if (street === "" || city === "" || zipCode === "" || pickUpDate === "" || pickUpTime === "") {
+                        const currentDate = new Date();
+                        const pickUpDate1 = new Date(pickUpDateValue);
+                        if (pickUpDate1 < currentDate) {
+                            alert("Proszę wpisać datę z przyszłości");
+                            return;}else {
+                            const street = streetInput.value.trim();
+                            const city = cityInput.value.trim();
+                            const zipCode = zipCodeInput.value.trim();
+                            const pickUpDate = pickUpDateInput.value.trim();
+                            const pickUpTime = pickUpTimeInput.value.trim();
+                            if (street === "" || city === "" || zipCode === "" || pickUpDate === "" || pickUpTime === "") {
 
-                            alert("Proszę wypełnić wszystkie pola");
-                            return;
+                                alert("Proszę wypełnić wszystkie pola");
+                                return;
+                            }
                         }
-                    }
+                        }
 
                     this.currentStep++;
                     this.updateForm();

@@ -41,7 +41,7 @@ public class Donation {
     @NotBlank(message = "uzupełnij kod pocztowy")
     private String zipCode;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Future
+    @Future(message = "musi być przyszła data")
     @NotNull(message = "uzupełnij datę odbioru")
     private LocalDate pickUpDate;
     @NotNull(message = "uzupełnij godzinę odbioru")
