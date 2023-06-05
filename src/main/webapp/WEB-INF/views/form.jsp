@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="headfoot/header.jsp" %>
-
+<section class="form--steps" >
 <body>
 <header class="header--form-page">
 
@@ -34,7 +34,7 @@
   </div>
 </header>
 
-<section class="form--steps">
+<section class="form--steps" id="scrollTarget">
   <div class="form--steps-instructions">
     <div class="form--steps-container">
       <h3>Ważne!</h3>
@@ -61,12 +61,11 @@
       <!-- STEP 1: class .active is switching steps -->
       <div data-step="1">
         <h3>Zaznacz co chcesz oddać:</h3>
-
+        <form:errors path="categories" cssClass="error"/>
         <c:forEach items="${categories}" var="category">
           <div class="form-group form-group--checkbox">
             <label>
               <form:checkbox path="categories"  value="${category.id}" />
-              <form:errors path="categories" cssClass="error"/>
               <span class="checkbox"></span>
               <span class="description" >${category.name}</span>
             </label>
@@ -80,7 +79,7 @@
 
       <!-- STEP 2 -->
       <div data-step="2">
-        <h3>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h3>
+        <h3>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy: (musi być minimum jeden)</h3>
 
         <div class="form-group form-group--inline">
           <label>
@@ -99,12 +98,11 @@
       <!-- STEP 3 -->
       <div data-step="3">
         <h3>Wybierz organizacje, której chcesz pomóc:</h3>
-
+        <form:errors path="institution" cssClass="error"/>
         <c:forEach items="${institutions}" var="institution">
           <div class="form-group form-group--checkbox">
             <form:label for="institution${institution.id}" path="institution">
               <form:radiobutton id="institution${institution.id}" path="institution"  value="${institution.id}" />
-              <form:errors path="institution" cssClass="error"/>
               <span class="checkbox radio"></span>
               <span class="description">
                     <div class="title" >${institution.name}</div>

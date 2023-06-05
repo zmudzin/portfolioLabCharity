@@ -1,14 +1,14 @@
-package pl.coderslab.charity;
+package pl.coderslab.charity.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.entity.Category;
 import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
@@ -52,13 +52,15 @@ public class FormController {
     @PostMapping("/form")
     public String addDonation(@Valid Donation donation, BindingResult result) {
         if (result.hasErrors()) {
-            for (ObjectError error : result.getAllErrors()) {
-                logger.error(error.toString());
                 return "/form";
-            }
         }
             donationService.createDonation(donation);
-            return "form-confirmation";
+            return "redirect:/form_confirmation";
+        }
+
+        @RequestMapping("/form_confirmation")
+    public String confirm(){
+        return "form-confirmation";
         }
 
     }
