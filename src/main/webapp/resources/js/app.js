@@ -152,6 +152,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // TODO: Validation
 
+
+
       this.slides.forEach(slide => {
         slide.classList.remove("active");
 
@@ -170,17 +172,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     showSummary() {
 
-      const bags = document.getElementById("myQuantity").value;
-
-      const categoryInput = document.getElementById("myCategories");
-      const categoryName = categoryInput.innerText;
-
-      const categoryElements = form.querySelectorAll('input[name="myCategories"]:checked');
-      const selectedCategories = Array.from(categoryElements).map(element => element.dataset.categoryName);
+      const categoryElements = form.querySelectorAll('input[name="categories"]:checked');
+      const selectedCategories = Array.from(categoryElements).map(element => element.parentElement.querySelector('.description').innerText);
       const selectedCategoriesString = selectedCategories.join(', ');
 
-      const selectedInstitutionRadio = form.querySelector('input[name="institution.id"]:checked');
-      const institutionName = selectedInstitutionRadio.nextElementSibling.querySelector('.title').innerText;
+      const bags = document.getElementById("quantity").value;
+      const selectedInstitutionRadio = document.querySelector('input[name="institution"]:checked');
+      const institutionName = selectedInstitutionRadio.parentNode.querySelector('.title').innerText;
       const street = form.querySelector('input[name="street"]').value;
       const city = form.querySelector('input[name="city"]').value;
       const zipCode = form.querySelector('input[name="zipCode"]').value;
@@ -188,7 +186,8 @@ document.addEventListener("DOMContentLoaded", function() {
       const pickUpTime = form.querySelector('input[name="pickUpTime"]').value;
       const pickUpComment = form.querySelector('textarea[name="pickUpComment"]').value;
 
-      document.getElementById("bagsSummary").innerText ="Ilość worków: "+ bags + " kategorie: "+categoryElements+ selectedCategories+ selectedCategoriesString+" w dobrym stanie";
+
+      document.getElementById("bagsSummary").innerText ="Ilość worków: "+ bags + " kategorie: "+ selectedCategoriesString+ " w dobrym stanie";
       document.getElementById("institutionSummary").innerText = "Dla fundacji " + institutionName;
       document.getElementById("addressSummary").innerText = `${street}, ${city}, ${zipCode}`;
       document.getElementById("pickupSummary").innerText = `${pickUpDate}, ${pickUpTime}, ${pickUpComment}`;

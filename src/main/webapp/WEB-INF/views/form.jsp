@@ -65,9 +65,10 @@
         <c:forEach items="${categories}" var="category">
           <div class="form-group form-group--checkbox">
             <label>
-              <form:checkbox path="categories" value="${category.id}" />
-<%--                                  <span class="checkbox"></span>--%>
-              <span class="description" id="myCategories">${category.name}</span>
+              <form:checkbox path="categories"  value="${category.id}" />
+              <form:errors path="categories" cssClass="error"/>
+              <span class="checkbox"></span>
+              <span class="description" >${category.name}</span>
             </label>
           </div>
         </c:forEach>
@@ -84,7 +85,8 @@
         <div class="form-group form-group--inline">
           <label>
             Liczba 60l worków:
-            <form:input id="myQuantity" path="quantity" type="number" step="1" min="1" />
+            <form:input path="quantity" type="number" step="1" min="1" value="1"/>
+            <form:errors path="quantity" cssClass="error"/>
           </label>
         </div>
 
@@ -100,11 +102,12 @@
 
         <c:forEach items="${institutions}" var="institution">
           <div class="form-group form-group--checkbox">
-            <form:label path="institution.id">
-              <form:radiobutton path="institution.id" value="${institution.id}" />
-<%--                                <span class="checkbox radio"></span>--%>
+            <form:label for="institution${institution.id}" path="institution">
+              <form:radiobutton id="institution${institution.id}" path="institution"  value="${institution.id}" />
+              <form:errors path="institution" cssClass="error"/>
+              <span class="checkbox radio"></span>
               <span class="description">
-                    <div class="title" id="myInstitution">${institution.name}</div>
+                    <div class="title" >${institution.name}</div>
                     <div class="subtitle">
                         Cel i misja: ${institution.description}
                     </div>
@@ -129,16 +132,19 @@
             <div class="form-group form-group--inline">
               <form:label path="street"> Ulica </form:label>
               <form:input path="street" type="text"/>
+              <form:errors path="street" cssClass="error"/>
             </div>
 
             <div class="form-group form-group--inline">
               <form:label path="city"> Miasto </form:label>
               <form:input path="city" type="text" />
+              <form:errors path="city" cssClass="error"/>
             </div>
 
             <div class="form-group form-group--inline">
               <form:label path="zipCode">Kod pocztowy </form:label>
               <form:input path="zipCode" type="text"/>
+              <form:errors path="zipCode" cssClass="error"/>
             </div>
 
             <div class="form-section--column">
@@ -146,17 +152,20 @@
               <div class="form-group form-group--inline">
                 <form:label path="pickUpDate"> Data </form:label>
                 <form:input path="pickUpDate" type="date" />
+                <form:errors path="pickUpDate" cssClass="error"/>
               </div>
             </div>
 
             <div class="form-group form-group--inline">
               <form:label path="pickUpTime"> Godzina </form:label>
               <form:input path="pickUpTime" type="time" />
+              <form:errors path="pickUpTime" cssClass="error"/>
             </div>
 
             <div class="form-group form-group--inline">
               <form:label path="pickUpComment"> Uwagi dla kuriera </form:label>
               <form:textarea path="pickUpComment" rows="5"/>
+              <form:errors path="pickUpComment" cssClass="error"/>
             </div>
           </div>
         </div>
