@@ -1,6 +1,4 @@
-package pl.coderslab.charity.entity;
-
-import jdk.jfr.Enabled;
+package pl.revida.charity.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,16 +6,16 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="institutions")
+@Table(name = "categories")
 @Getter
 @Setter
 @ToString
-public class Institution {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String name;
 
-    private String description;
 }

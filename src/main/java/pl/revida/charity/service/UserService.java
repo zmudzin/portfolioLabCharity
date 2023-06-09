@@ -1,8 +1,8 @@
-package pl.coderslab.charity.service;
+package pl.revida.charity.service;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.charity.entity.User;
-import pl.coderslab.charity.repository.UserRepository;
+import pl.revida.charity.entity.User;
+import pl.revida.charity.repository.UserRepository;
 @Service
 public class UserService {
     private final UserRepository userRepository;

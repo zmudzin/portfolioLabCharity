@@ -1,4 +1,4 @@
-package pl.coderslab.charity.entity;
+package pl.revida.charity.entity;
 
 import lombok.Getter;
 import lombok.Setter;

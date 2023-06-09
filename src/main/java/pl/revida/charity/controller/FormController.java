@@ -1,4 +1,4 @@
-package pl.coderslab.charity.controller;
+package pl.revida.charity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.charity.entity.Category;
-import pl.coderslab.charity.entity.Donation;
-import pl.coderslab.charity.entity.Institution;
-import pl.coderslab.charity.service.CategoryService;
-import pl.coderslab.charity.service.DonationService;
-import pl.coderslab.charity.service.InstitutionService;
+import pl.revida.charity.entity.Category;
+import pl.revida.charity.entity.Donation;
+import pl.revida.charity.entity.Institution;
+import pl.revida.charity.service.CategoryService;
+import pl.revida.charity.service.DonationService;
+import pl.revida.charity.service.InstitutionService;
 
 import javax.validation.Valid;
 import java.util.Collection;

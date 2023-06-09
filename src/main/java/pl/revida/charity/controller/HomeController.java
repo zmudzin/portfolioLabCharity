@@ -1,11 +1,11 @@
-package pl.coderslab.charity.controller;
+package pl.revida.charity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.charity.entity.Institution;
-import pl.coderslab.charity.service.DonationService;
-import pl.coderslab.charity.service.InstitutionService;
+import pl.revida.charity.entity.Institution;
+import pl.revida.charity.service.DonationService;
+import pl.revida.charity.service.InstitutionService;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package pl.coderslab.charity.repository;
+package pl.revida.charity.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.coderslab.charity.entity.User;
+import pl.revida.charity.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 

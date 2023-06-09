@@ -1,9 +1,9 @@
-package pl.coderslab.charity.service;
+package pl.revida.charity.service;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import pl.coderslab.charity.entity.Institution;
-import pl.coderslab.charity.repository.InstitutionRepository;
+import pl.revida.charity.entity.Institution;
+import pl.revida.charity.repository.InstitutionRepository;
 import java.util.Collection;
 import java.util.List;
 @Service

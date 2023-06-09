@@ -1,4 +1,4 @@
-package pl.coderslab.charity.controller;
+package pl.revida.charity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,8 +6,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.charity.entity.User;
-import pl.coderslab.charity.service.UserService;
+import pl.revida.charity.entity.User;
+import pl.revida.charity.service.UserService;
 
 import javax.validation.Valid;
 

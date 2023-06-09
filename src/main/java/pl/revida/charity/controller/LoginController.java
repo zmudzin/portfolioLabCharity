@@ -1,4 +1,4 @@
-package pl.coderslab.charity.controller;
+package pl.revida.charity.controller;
 
 
 import org.springframework.stereotype.Controller;

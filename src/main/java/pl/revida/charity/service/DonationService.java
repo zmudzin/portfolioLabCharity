@@ -1,8 +1,8 @@
-package pl.coderslab.charity.service;
+package pl.revida.charity.service;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.charity.entity.Donation;
-import pl.coderslab.charity.repository.DonationRepository;
+import pl.revida.charity.entity.Donation;
+import pl.revida.charity.repository.DonationRepository;
 
 
 @Service
