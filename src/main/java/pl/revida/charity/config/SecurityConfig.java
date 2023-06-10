@@ -20,6 +20,7 @@ public class SecurityConfig {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/form").authenticated()
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .and().formLogin()
                 .loginPage("/login")
                 .and().logout().logoutSuccessUrl("/")

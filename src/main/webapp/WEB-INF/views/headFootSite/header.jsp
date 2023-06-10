@@ -22,6 +22,11 @@
                     <input class="fa fa-id-badge" type="submit" value="Wyloguj">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form></li>
+                <security:authorize access="hasRole('ROLE_ADMIN')">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/admin" />Panel administratora</a>
+                    </li>
+                </security:authorize>
             </security:authorize>
             <security:authorize access="!isAuthenticated()">
                 <li><a href="${pageContext.request.contextPath}/login" class="btn btn--small btn--without-border">Zaloguj</a></li>

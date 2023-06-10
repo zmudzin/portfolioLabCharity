@@ -35,7 +35,7 @@ public class HomeController {
         model.addAttribute("donationSize", donationSize);
         return "index";
     }
-    @GetMapping("/admin")
+    @GetMapping("/checkWhoIsLogged")
     @ResponseBody
     public String userInfo(@AuthenticationPrincipal UserDetails customUser) {
         return "You are logged as " + customUser;

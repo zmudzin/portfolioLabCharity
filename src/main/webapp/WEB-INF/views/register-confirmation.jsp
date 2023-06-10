@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="headfoot/header.jsp" %>
+<%@ include file="headFootSite/header.jsp" %>
 <body>
 <header class="header--form-page">
     <div class="slogan container container--90">
@@ -10,4 +10,4 @@
     </div>
 </header>
 </body>
-<%@ include file="headfoot/footer.jsp" %>
+<%@ include file="headFootSite/footer.jsp" %>

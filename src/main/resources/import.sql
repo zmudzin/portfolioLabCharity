@@ -7,6 +7,9 @@ INSERT INTO categories (name) VALUES ('Książki');
 insert into role (name) values ('ROLE_USER');
 insert into role (name) values ('ROLE_ADMIN');
 
+insert into users(email, enabled, password) VALUES ('admin@admin.pl',1,'$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW');
+insert into user_role(user_id, role_id) values (1,2);
+
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Słoneczny Dzień"', 'Fundacja pomagająca dzieciom z niepełnosprawnościami poprzez organizowanie terapii i warsztatów.');
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Radosna Przyszłość"', 'Fundacja skupiająca się na wspieraniu edukacji dzieci z ubogich rodzin.');
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Zdrowe Pokolenie"', 'Fundacja prowadząca programy edukacyjne na temat zdrowego stylu życia dla dzieci i młodzieży.');
