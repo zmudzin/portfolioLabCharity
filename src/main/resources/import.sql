@@ -4,6 +4,9 @@ INSERT INTO categories (name) VALUES ('Elektronika');
 INSERT INTO categories (name) VALUES ('Meble');
 INSERT INTO categories (name) VALUES ('Książki');
 
+insert into role (name) values ('ROLE_USER');
+insert into role (name) values ('ROLE_ADMIN');
+
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Słoneczny Dzień"', 'Fundacja pomagająca dzieciom z niepełnosprawnościami poprzez organizowanie terapii i warsztatów.');
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Radosna Przyszłość"', 'Fundacja skupiająca się na wspieraniu edukacji dzieci z ubogich rodzin.');
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Zdrowe Pokolenie"', 'Fundacja prowadząca programy edukacyjne na temat zdrowego stylu życia dla dzieci i młodzieży.');
@@ -31,3 +34,5 @@ insert into donations_categories (donation_id, category_id) values (3,2);
 insert into donations_categories (donation_id, category_id) values (4,1);
 insert into donations_categories (donation_id, category_id) values (5,3);
 insert into donations_categories (donation_id, category_id) values (5,5);
+
+
