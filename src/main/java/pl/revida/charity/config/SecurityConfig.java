@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -14,15 +15,16 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
     @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user@user.pl")
-                .password("password")
+    public InMemoryUserDetailsManager users() {
+        String encodedPassword = new BCryptPasswordEncoder().encode("password");
+        UserDetails user = User.builder()
+                .username("user")
+                .password(encodedPassword)
                 .roles("USER")
                 .build();
-        UserDetails admin = User.withDefaultPasswordEncoder()
+        UserDetails admin = User.builder()
                 .username("admin")
-                .password("password")
+                .password(encodedPassword)
                 .roles("USER", "ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(user, admin);
@@ -34,8 +36,14 @@ public class SecurityConfig {
                 .antMatchers("/form").authenticated()
                 .and().formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/");
+                .and().logout().logoutSuccessUrl("/")
+                .permitAll()
+                .and().exceptionHandling().accessDeniedPage("/403");
         return http.build();
+    }
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
 }
