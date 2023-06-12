@@ -1,9 +1,7 @@
 package pl.revida.charity.entity;
 
-import jdk.jfr.Enabled;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,7 +9,6 @@ import javax.persistence.*;
 @Table(name ="institutions")
 @Getter
 @Setter
-@ToString
 public class Institution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +17,9 @@ public class Institution {
     private String name;
 
     private String description;
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

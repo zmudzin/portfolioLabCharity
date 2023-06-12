@@ -21,26 +21,32 @@
                 <!-- Card Header - Dropdown -->
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Użytkownicy</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Donations</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                     <table>
                         <thead>
                         <tr>
-                            <th>Email<p style="font-size: 12px; color:#b30000">Click below for details</p></th>
+                            <th>Categories</th>
+                            <th>Institution</th>
+                            <th>Quantity</th>
+                            <th>Pick Up</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${users}" var="user">
+                        <c:forEach items="${donations}" var="donation">
                             <tr>
-                                <td><a class="publisher-fullname-link" href="/user/${user.id}">${user.email} enabled: ${user.enabled}</a></td>
+                                <td>${donation.categories}</td>
+                                <td> ${donation.institution}</td>
+                                <td>${donation.quantity}</td>
+                                <td>${donation.pickUpDate}</td>
                                 <td class="action-links">
-                                    <form action="/publisher/edit/${user.id}" style="display: inline;">
-                                        <button type="submit" class="edit-button">Edit</button>
+                                    <form action="/admin/donations/${donation.id}" style="display: inline;">
+                                        <button type="submit" class="edit-button">View/Edit</button>
                                     </form>
-                                    <form action="/publisher/delete/${user.id}" style="display: inline;">
+                                    <form action="/admin/donations/delete/${donation.id}" style="display: inline;">
                                         <button type="submit" class="delete-button">Delete</button>
                                     </form>
                                 </td>

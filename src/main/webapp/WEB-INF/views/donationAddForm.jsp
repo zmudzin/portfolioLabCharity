@@ -27,29 +27,50 @@
 
 <div class="container">
     <h1>Add User</h1>
-    <form:form method="POST" modelAttribute="user">
-        <label>Email:</label>
+    <form:form method="POST" modelAttribute="donation">
+        <label>Quantity:</label>
         <div>
-            <form:input path="email"/>
-            <form:errors path="email" cssClass="error"/>
+            <form:input type="number" path="quantity"/>>
         </div>
-        <label>Enabled:</label>
+        <label>Categories:</label>
         <div>
-            <form:checkbox path="enabled" value="1"/>
-            <form:errors path="enabled" cssClass="error"/>
+            <c:forEach items="${categories}" var="category">
+                <form:checkbox path="categories" value="${category.id}"/> ${category.name}<br/>
+            </c:forEach>
         </div>
-        <label>Password:</label>
+        <label>Institution:</label>
         <div>
-            <form:password path="password"/>
-            <form:errors path="password" cssClass="error"/>
+            <form:select path="institution.id">
+                <c:forEach items="${institutions}" var="institution">
+                    <form:option value="${institution.id}">${institution.name}</form:option>
+                </c:forEach>
+            </form:select>
         </div>
-        <label>Role:</label>
+        <label>Street:</label>
         <div>
-            <form:select path="roles"
-                         items="${roles}" itemLabel="name" itemValue="id"/>
-            <form:errors path="roles" cssClass="error"/>
+            <form:input path="street"/>
         </div>
-        <input type="submit" value="Add"/>
+        <label>City:</label>
+        <div>
+            <form:input path="city"/>
+        </div>
+        <label>Zip Code:</label>
+        <div>
+            <form:input path="zipCode"/>
+        </div>
+        <label>Pick Up Date:</label>
+        <div>
+            <form:input type="date" path="pickUpDate"/>
+        </div>
+        <label>Pick Up Time:</label>
+        <div>
+            <form:input type="time" path="pickUpTime"/>
+        </div>
+        <label>Pick Up Comment:</label>
+        <div>
+            <form:input path="pickUpComment"/>
+        </div>
+        <input type="submit" value="Donate"/>
     </form:form>
     <button class="cancel" onclick="location.href='/admin/users'" >Cancel</button>
 </div>

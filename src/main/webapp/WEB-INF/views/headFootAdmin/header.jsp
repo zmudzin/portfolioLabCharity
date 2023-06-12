@@ -63,8 +63,6 @@
           <h6 class="collapse-header">Wybierz:</h6>
           <a class="collapse-item" href="${pageContext.request.contextPath}/admin/users">Przeglądaj</a>
           <a class="collapse-item" href="${pageContext.request.contextPath}/admin/users/add">Dodaj</a>
-          <a class="collapse-item" href="cards.html">Usuń</a>
-          <a class="collapse-item" href="cards.html">Edytuj</a>
         </div>
       </div>
     </li>
@@ -80,10 +78,8 @@
            data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Wybierz:</h6>
-          <a class="collapse-item" href="utilities-color.html">Przeglądaj</a>
-          <a class="collapse-item" href="utilities-border.html">Dodaj</a>
-          <a class="collapse-item" href="utilities-animation.html">Usuń</a>
-          <a class="collapse-item" href="utilities-other.html">Edytuj</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/donations">Przeglądaj</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/donations/add">Dodaj</a>
         </div>
       </div>
     </li>
@@ -108,14 +104,10 @@
           <h6 class="collapse-header">Kategorie:</h6>
           <a class="collapse-item" href="login.html">Przeglądaj</a>
           <a class="collapse-item" href="register.html">Dodaj</a>
-          <a class="collapse-item" href="forgot-password.html">Usuń</a>
-          <a class="collapse-item" href="forgot-password.html">Edytuj</a>
           <div class="collapse-divider"></div>
           <h6 class="collapse-header">Instytucje:</h6>
           <a class="collapse-item" href="login.html">Przeglądaj</a>
           <a class="collapse-item" href="register.html">Dodaj</a>
-          <a class="collapse-item" href="forgot-password.html">Usuń</a>
-          <a class="collapse-item" href="forgot-password.html">Edytuj</a>
         </div>
       </div>
     </li>

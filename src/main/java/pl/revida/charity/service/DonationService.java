@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import pl.revida.charity.entity.Donation;
 import pl.revida.charity.repository.DonationRepository;
 
+import java.util.Collection;
+
 
 @Service
 public class DonationService {
@@ -22,7 +24,8 @@ public class DonationService {
     public Donation createDonation(Donation donation) {
         return donationRepository.save(donation);
     }
+    public void deleteDonation(Donation donation){donationRepository.delete(donation);}
 
-
-
+public Collection<Donation> findAll(){return donationRepository.findAll();}
+    public Donation findById(long id){return donationRepository.findById(id);}
 }

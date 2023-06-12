@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.revida.charity.entity.User;
-import pl.revida.charity.repository.RoleRepository;
 import pl.revida.charity.repository.UserRepository;
 
 import java.util.HashSet;
@@ -18,17 +17,16 @@ import java.util.Set;
 @Service
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository,  BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.roleRepository=roleRepository;
         this.passwordEncoder=passwordEncoder;
     }
 
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+    public User findById(long id){return  userRepository.findById(id);}
 
     public void createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -54,5 +52,7 @@ public class UserService implements UserDetailsService {
         return new CurrentUser(user.getEmail(),user.getPassword(),
                 grantedAuthorities, user);
     }
+    public void deleteUser(User user){userRepository.delete(user);}
 
-}
+    }
+
