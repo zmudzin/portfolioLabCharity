@@ -15,7 +15,8 @@ public class InstitutionService {
     public List<Institution> getInstitutionsForIndexPage() {
         return institutionRepository.findAll(Pageable.ofSize(4)).getContent();
     }
-    public Collection<Institution> getAllInstitutions() {
+    public Collection<Institution> findAll() {
         return institutionRepository.findAll();
     }
+    public Institution createInstitution(Institution institution){return institutionRepository.save(institution);}
 }

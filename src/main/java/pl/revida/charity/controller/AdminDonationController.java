@@ -31,12 +31,12 @@ public class AdminDonationController {
 
     @ModelAttribute("institutions")
     public Collection<Institution> institutions() {
-        return institutionService.getAllInstitutions();
+        return institutionService.findAll();
     }
 
     @ModelAttribute("categories")
     public Collection<Category> categories() {
-        return categoryService.getAllCategories();
+        return categoryService.findAll();
     }
 
     @RequestMapping("/admin/donations")
@@ -45,7 +45,7 @@ public class AdminDonationController {
     }
 
     @RequestMapping("/admin/donations/{id}")
-    public String getAuthor(Model model, @PathVariable long id) {
+    public String getDonation(Model model, @PathVariable long id) {
         Donation donation = donationService.findById(id);
         model.addAttribute(donation);
         return "/donationViewForm";

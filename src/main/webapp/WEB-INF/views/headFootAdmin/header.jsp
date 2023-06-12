@@ -102,12 +102,12 @@
       <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Kategorie:</h6>
-          <a class="collapse-item" href="login.html">Przeglądaj</a>
-          <a class="collapse-item" href="register.html">Dodaj</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/category">Przeglądaj</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/category/add">Dodaj</a>
           <div class="collapse-divider"></div>
           <h6 class="collapse-header">Instytucje:</h6>
-          <a class="collapse-item" href="login.html">Przeglądaj</a>
-          <a class="collapse-item" href="register.html">Dodaj</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/institutions">Przeglądaj</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/institutions/add">Dodaj</a>
         </div>
       </div>
     </li>

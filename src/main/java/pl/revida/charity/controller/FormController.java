@@ -32,12 +32,12 @@ public class FormController {
 
     @ModelAttribute("institutions")
     public Collection<Institution> institutions() {
-        return institutionService.getAllInstitutions();
+        return institutionService.findAll();
     }
 
     @ModelAttribute("categories")
     public Collection<Category> categories() {
-        return categoryService.getAllCategories();
+        return categoryService.findAll();
     }
 
     @GetMapping("/form")
