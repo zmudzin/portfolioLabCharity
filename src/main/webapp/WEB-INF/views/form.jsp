@@ -217,6 +217,7 @@
                         <button type="submit" class="btn">Potwierdzam</button>
                     </div>
                 </div>
+
             </form:form>
         </div>
     </section>

@@ -1,5 +1,10 @@
 package pl.revida.charity.service;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.revida.charity.entity.Role;
@@ -9,9 +14,10 @@ import pl.revida.charity.repository.UserRepository;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
@@ -36,8 +42,16 @@ public class UserService {
 
         return userRepository.existsByEmail(email);
     }
-
-
-
-
+    @Override
+    public UserDetails loadUserByUsername(String email) {
+        User user = findByEmail(email);
+        if (user == null) {
+            throw new UsernameNotFoundException(email);
+        }
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+        user.getRoles().forEach(r ->
+                grantedAuthorities.add(new SimpleGrantedAuthority(r.getName())));
+        return new CurrentUser(user.getEmail(),user.getPassword(),
+                grantedAuthorities, user);
+    }
 }

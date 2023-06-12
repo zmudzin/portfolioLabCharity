@@ -15,6 +15,7 @@ import java.util.List;
 
 
 @Controller
+//@PreAuthorize("ROLE_USER")
 public class HomeController {
     private final InstitutionService institutionService;
     private final DonationService donationService;
