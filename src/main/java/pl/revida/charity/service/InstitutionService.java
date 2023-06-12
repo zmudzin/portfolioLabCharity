@@ -4,6 +4,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.revida.charity.entity.Institution;
 import pl.revida.charity.repository.InstitutionRepository;
+
 import java.util.Collection;
 import java.util.List;
 @Service
@@ -18,5 +19,7 @@ public class InstitutionService {
     public Collection<Institution> findAll() {
         return institutionRepository.findAll();
     }
+    public Institution findById(long id){return institutionRepository.findById(id);}
     public Institution createInstitution(Institution institution){return institutionRepository.save(institution);}
+    public void deleteInstitution(Institution institution){institutionRepository.delete(institution);}
 }

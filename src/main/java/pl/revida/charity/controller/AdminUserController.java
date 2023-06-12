@@ -34,32 +34,32 @@ public class AdminUserController {
 
     @RequestMapping("/admin")
     public String login() {
-        return "userIndexAdmin";
+        return "userView/userIndexAdmin";
     }
 
     @RequestMapping("/admin/users")
     public String findAllUsers() {
-        return "userIndexAdmin";
+        return "userView/userIndexAdmin";
     }
 
     @RequestMapping("/admin/users/{id}")
     public String getUser(Model model, @PathVariable long id) {
         User user = userService.findById(id);
         model.addAttribute(user);
-        return "/userViewForm";
+        return "userView/userViewForm";
     }
 
     @GetMapping("/admin/users/add")
     public String addUserForm(Model model) {
         model.addAttribute(new User());
-        return "/userAddForm";
+        return "userView/userAddForm";
     }
 
     @PostMapping("/admin/users/add")
     public String addUser(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             for (ObjectError error : result.getAllErrors()) {
-                return "userAddForm";
+                return "userView/userAddForm";
             }
         }
         userService.createUser(user);
@@ -70,7 +70,7 @@ public class AdminUserController {
     public String deleteUserForm(Model model, @PathVariable long id) {
         User user = userService.findById(id);
         model.addAttribute(user);
-        return "/userDeleteForm";
+        return "userView/userDeleteForm";
     }
 
     @PostMapping("/admin/users/delete/{id}")

@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="headFootSite/header.jsp" %>
+<%@ include file="../headFootSite/header.jsp" %>
 
 <section class="login-page">
     <h2>Zaloguj się</h2>
@@ -23,4 +23,4 @@
     </form>
 </section>
 
-<%@ include file="headFootSite/footer.jsp" %>
+<%@ include file="../headFootSite/footer.jsp" %>

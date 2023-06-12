@@ -24,17 +24,17 @@ public class RegisterController {
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("user", new User());
-        return "register";
+        return "mainSiteView/register";
     }
 
     @PostMapping("/register")
     public String addUser(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "/register";
+            return "mainSiteView/register";
         }
         if (userService.isEmailExists(user.getEmail())) {
             result.rejectValue("email", "error.email.exists", "Adres e-mail już istnieje");
-            return "/register";
+            return "mainSiteView/register";
         }
         userService.createUser(user);
         return "redirect:/register_confirmation";
@@ -42,7 +42,7 @@ public class RegisterController {
 
     @RequestMapping("/register_confirmation")
     public String confirmRegister() {
-        return "register-confirmation";
+        return "mainSiteView/register-confirmation";
     }
 
 }

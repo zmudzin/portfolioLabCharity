@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="headFootAdmin/header.jsp" %>
+<%@ include file="../headFootAdmin/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container-fluid">
 
@@ -21,37 +21,22 @@
                 <!-- Card Header - Dropdown -->
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Użytkownicy</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
                 </div>
 
 
 <div class="container">
-    <h1>Add User</h1>
-    <form:form method="POST" modelAttribute="user">
-        <label>Email:</label>
+    <h1>Add Category</h1>
+    <form:form method="POST" modelAttribute="category">
+        <label>Name:</label>
         <div>
-            <form:input path="email"/>
-            <form:errors path="email" cssClass="error"/>
+            <form:input path="name"/>
+            <form:errors path="name" cssClass="error"/>
         </div>
-        <label>Enabled:</label>
-        <div>
-            <form:checkbox path="enabled" value="1"/>
-            <form:errors path="enabled" cssClass="error"/>
-        </div>
-        <label>Password:</label>
-        <div>
-            <form:password path="password"/>
-            <form:errors path="password" cssClass="error"/>
-        </div>
-        <label>Role:</label>
-        <div>
-            <form:select path="roles"
-                         items="${roles}" itemLabel="name" itemValue="id"/>
-            <form:errors path="roles" cssClass="error"/>
-        </div>
+
         <input type="submit" value="Add"/>
     </form:form>
-    <button class="cancel" onclick="location.href='/admin/users'" >Cancel</button>
+    <button class="cancel" onclick="location.href='/admin/category'" >Cancel</button>
 </div>
-                <%@ include file="headFootAdmin/footer.jsp" %>
+                <%@ include file="../headFootAdmin/footer.jsp" %>
 

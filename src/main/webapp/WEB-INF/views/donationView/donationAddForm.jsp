@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="headFootAdmin/header.jsp" %>
+<%@ include file="../headFootAdmin/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container-fluid">
 
@@ -72,7 +72,7 @@
         </div>
         <input type="submit" value="Donate"/>
     </form:form>
-    <button class="cancel" onclick="location.href='/admin/donations'" >Cancel</button>
+    <button class="cancel" onclick="location.href='/admin/users'" >Cancel</button>
 </div>
-                <%@ include file="headFootAdmin/footer.jsp" %>
+                <%@ include file="../headFootAdmin/footer.jsp" %>
 

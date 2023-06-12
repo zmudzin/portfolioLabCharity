@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="headFootAdmin/header.jsp" %>
+<%@ include file="../headFootAdmin/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container-fluid">
 
@@ -21,28 +21,26 @@
                 <!-- Card Header - Dropdown -->
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Użytkownicy</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                     <table>
                         <thead>
                         <tr>
-                            <th>Email</th>
-                            <th>Enabled</th>
+                            <th>Name</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${users}" var="user">
+                        <c:forEach items="${categories}" var="category">
                             <tr>
-                                <td>${user.email}</td>
-                                <td>${user.enabled}<td>
+                                <td>${category.name}</td>
                                 <td class="action-links">
-                                    <form action="/admin/users/${user.id}" style="display: inline;">
-                                        <button type="submit" class="edit-button">Edit</button>
+                                    <form action="/admin/category/${category.id}" style="display: inline;">
+                                        <button type="submit" class="edit-button">View/Edit</button>
                                     </form>
-                                    <form action="/admin/users/delete/${user.id}" style="display: inline;">
+                                    <form action="/admin/category/delete/${category.id}" style="display: inline;">
                                         <button type="submit" class="delete-button">Delete</button>
                                     </form>
                                 </td>
@@ -57,4 +55,4 @@
 </div>
 </div>
 <!-- /.container-fluid -->
-<%@ include file="headFootAdmin/footer.jsp" %>
+<%@ include file="../headFootAdmin/footer.jsp" %>

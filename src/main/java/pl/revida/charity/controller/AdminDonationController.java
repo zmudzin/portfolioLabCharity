@@ -41,27 +41,27 @@ public class AdminDonationController {
 
     @RequestMapping("/admin/donations")
     public String findAllDonations() {
-        return "donationsIndex";
+        return "donationView/donationsIndex";
     }
 
     @RequestMapping("/admin/donations/{id}")
     public String getDonation(Model model, @PathVariable long id) {
         Donation donation = donationService.findById(id);
         model.addAttribute(donation);
-        return "/donationViewForm";
+        return "donationView/donationViewForm";
     }
 
     @GetMapping("/admin/donations/add")
     public String addDonationForm(Model model) {
         model.addAttribute(new Donation());
-        return "/donationAddForm";
+        return "donationView/donationAddForm";
     }
 
     @PostMapping("/admin/donations/add")
     public String addDonation(@Valid Donation donation, BindingResult result) {
         if (result.hasErrors()) {
             for (ObjectError error : result.getAllErrors()) {
-                return "/donationAddForm";
+                return "donationView/donationAddForm";
             }
         }
         donationService.createDonation(donation);
@@ -72,7 +72,7 @@ public class AdminDonationController {
     public String deleteDonationForm(Model model, @PathVariable long id) {
         Donation donation = donationService.findById(id);
         model.addAttribute("donation", donation);
-        return "donationDeleteForm";
+        return "donationView/donationDeleteForm";
     }
 
     @PostMapping("/admin/donations/delete/{id}")

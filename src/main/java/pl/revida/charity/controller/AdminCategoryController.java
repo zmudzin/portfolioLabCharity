@@ -36,27 +36,27 @@ public class AdminCategoryController {
 
     @RequestMapping("/admin/category")
     public String getAllCategories() {
-        return "categoryIndexAdmin";
+        return "categoryView/categoryIndexAdmin";
     }
 
     @RequestMapping("/admin/category/{id}")
     public String getCategory(Model model, @PathVariable long id) {
         Category category = categoryService.findById(id);
         model.addAttribute(category);
-        return "/categoryViewForm";
+        return "categoryView/categoryViewForm";
     }
 
     @GetMapping("/admin/category/add")
     public String addCategoryForm(Model model) {
         model.addAttribute(new Category());
-        return "/categoryAddForm";
+        return "categoryView/categoryAddForm";
     }
 
     @PostMapping("/admin/category/add")
     public String addCategory(@Valid Category category, BindingResult result) {
         if (result.hasErrors()) {
             for (ObjectError error : result.getAllErrors()) {
-                return "/categoryAddForm";
+                return "categoryView/categoryAddForm";
             }
         }
         categoryService.createCategory(category);
@@ -67,7 +67,7 @@ public class AdminCategoryController {
     public String deleteCategoryForm(Model model, @PathVariable long id) {
         Category category = categoryService.findById(id);
         model.addAttribute(category);
-        return "/categoryDeleteForm";
+        return "categoryView/categoryDeleteForm";
     }
 
     @PostMapping("/admin/category/delete/{id}")

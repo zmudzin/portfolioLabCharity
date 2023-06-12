@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="headFootAdmin/header.jsp" %>
+<%@ include file="../headFootAdmin/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container-fluid">
 
@@ -27,16 +27,21 @@
 
 <div class="container">
     <h1>Add Category</h1>
-    <form:form method="POST" modelAttribute="category">
+    <form:form method="POST" modelAttribute="institution">
         <label>Name:</label>
         <div>
             <form:input path="name"/>
             <form:errors path="name" cssClass="error"/>
         </div>
+        <label>Name:</label>
+        <div>
+            <form:input path="description"/>
+            <form:errors path="name" cssClass="error"/>
+        </div>
 
         <input type="submit" value="Add"/>
     </form:form>
-    <button class="cancel" onclick="location.href='/admin/category'" >Cancel</button>
+    <button class="cancel" onclick="location.href='/admin/institutions'" >Cancel</button>
 </div>
-                <%@ include file="headFootAdmin/footer.jsp" %>
+                <%@ include file="../headFootAdmin/footer.jsp" %>
 

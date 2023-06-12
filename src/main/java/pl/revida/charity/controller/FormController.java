@@ -43,13 +43,13 @@ public class FormController {
     @GetMapping("/form")
     public String showDonation(Model model) {
         model.addAttribute("donation", new Donation());
-        return "form";
+        return "mainSiteView/form";
     }
 
     @PostMapping("/form")
     public String addDonation(@Valid Donation donation, BindingResult result) {
         if (result.hasErrors()) {
-            return "/form";
+            return "mainSiteView/form";
         }
         donationService.createDonation(donation);
         return "redirect:/form_confirmation";
@@ -57,7 +57,7 @@ public class FormController {
 
     @RequestMapping("/form_confirmation")
     public String confirmDonation() {
-        return "form-confirmation";
+        return "mainSiteView/form-confirmation";
     }
 
 }
