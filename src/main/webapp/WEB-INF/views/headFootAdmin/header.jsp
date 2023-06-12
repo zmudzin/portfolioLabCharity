@@ -61,8 +61,8 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Wybierz:</h6>
-          <a class="collapse-item" href="cards.html">Przeglądaj</a>
-          <a class="collapse-item" href="buttons.html">Dodaj</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/users">Przeglądaj</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/users/add">Dodaj</a>
           <a class="collapse-item" href="cards.html">Usuń</a>
           <a class="collapse-item" href="cards.html">Edytuj</a>
         </div>
