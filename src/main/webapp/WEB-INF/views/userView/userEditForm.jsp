@@ -21,17 +21,37 @@
                 <!-- Card Header - Dropdown -->
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Użytkownicy</h6>
                 </div>
 
 
-                <div class="container">
-                    <h1>Institution Details</h1>
-                    <label>Name:</label>
-                    <div>${institution.name}</div>
-                    <label>Description:</label>
-                    <div>${institution.description}</div>
-                    <button class="cancel" onclick="location.href='/admin/institutions'">Back</button>
-                </div>
+<div class="container">
+    <h1>Add User</h1>
+    <form:form method="POST" modelAttribute="user">
+        <label>Email:</label>
+        <div>
+            <form:input path="email"/>
+            <form:errors path="email" cssClass="error"/>
+        </div>
+        <label>Enabled:</label>
+        <div>
+            <form:checkbox path="enabled" value="1"/>
+            <form:errors path="enabled" cssClass="error"/>
+        </div>
+        <label>Password:</label>
+        <div>
+            <form:password path="password"/>
+            <form:errors path="password" cssClass="error"/>
+        </div>
+        <label>Role:</label>
+        <div>
+            <form:select path="roles"
+                         items="${roles}" itemLabel="name" itemValue="id"/>
+            <form:errors path="roles" cssClass="error"/>
+        </div>
+        <input type="submit" value="Add"/>
+    </form:form>
+    <button class="cancel" onclick="location.href='/admin/users'" >Cancel</button>
+</div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
 

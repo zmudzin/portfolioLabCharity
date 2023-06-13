@@ -38,7 +38,10 @@
                                 <td>${institution.name}</td>
                                 <td class="action-links">
                                     <form action="/admin/institutions/${institution.id}" style="display: inline;">
-                                        <button type="submit" class="edit-button">View/Edit</button>
+                                        <button type="submit" class="edit-button">View</button>
+                                    </form>
+                                    <form action="/admin/institutions/edit/${institution.id}" style="display: inline;">
+                                        <button type="submit" class="edit-button">Edit</button>
                                     </form>
                                     <form action="/admin/institutions/delete/${institution.id}" style="display: inline;">
                                         <button type="submit" class="delete-button">Delete</button>

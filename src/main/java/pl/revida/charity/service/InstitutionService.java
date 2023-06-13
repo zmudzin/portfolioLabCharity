@@ -22,4 +22,8 @@ public class InstitutionService {
     public Institution findById(long id){return institutionRepository.findById(id);}
     public Institution createInstitution(Institution institution){return institutionRepository.save(institution);}
     public void deleteInstitution(Institution institution){institutionRepository.delete(institution);}
+    public Institution updateInstitution(Institution institution) {
+        institutionRepository.delete(institution);
+        return institutionRepository.save(institution);
+    }
 }

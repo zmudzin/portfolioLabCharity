@@ -25,33 +25,21 @@
                 </div>
 
 
-<div class="container">
-    <h1>Add User</h1>
-    <form:form method="POST" modelAttribute="user">
-        <label>Email:</label>
-        <div>
-            <form:input path="email"/>
-            <form:errors path="email" cssClass="error"/>
-        </div>
-        <label>Enabled:</label>
-        <div>
-            <form:checkbox path="enabled" value="1"/>
-            <form:errors path="enabled" cssClass="error"/>
-        </div>
-        <label>Password:</label>
-        <div>
-            <form:password path="password"/>
-            <form:errors path="password" cssClass="error"/>
-        </div>
-        <label>Role:</label>
-        <div>
-            <form:select path="roles"
-                         items="${roles}" itemLabel="name" itemValue="id"/>
-            <form:errors path="roles" cssClass="error"/>
-        </div>
-        <input type="submit" value="Add"/>
-    </form:form>
-    <button class="cancel" onclick="location.href='/admin/users'" >Cancel</button>
-</div>
+                <div class="container">
+                    <h1>User Details</h1>
+                    <label>Email:</label>
+                    <div>${user.email}</div>
+                    <label>Enabled:</label>
+                    <div>${user.enabled ? 'Yes' : 'No'}</div>
+                    <label>Password:</label>
+                    <div>********</div> <!-- Displaying asterisks to indicate password confidentiality -->
+                    <label>Role:</label>
+                    <div>
+                        <c:forEach var="role" items="${user.roles}">
+                            <div>${role.name}</div>
+                        </c:forEach>
+                    </div>
+                    <button class="cancel" onclick="location.href='/admin/users'">Back</button>
+                </div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
 

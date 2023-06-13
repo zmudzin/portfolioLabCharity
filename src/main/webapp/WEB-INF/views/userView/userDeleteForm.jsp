@@ -16,18 +16,15 @@
                 </div>
 
 
-                <div class="container">
-                    <div class="container">
-                        <h1>Delete User</h1>
-                        <div class="confirmation-message">
-                            Are you sure you want to delete this user?
-                        </div>
-                        <div class="confirmation-buttons">
-                            <form method="POST" action="/admin/users/delete/${user.id}">
-                                <button type="submit">Yes</button>
-                            </form >
-                            <button class="cancel" onclick="location.href='/admin/users'">No</button>
-                        </div>
+                <form method="post" action="/admin/users/delete/${user.id}">
+                    <input type="hidden" name="email" value="${user.email}" />
+                    <input type="hidden" name="password" value="${user.password}" />
+                    <div class="confirmation-message">
+                        Are you sure you want to delete this user?
                     </div>
-                </div>
+                    <div class="confirmation-buttons">
+                        <button type="submit">Yes</button>
+                        <button class="cancel" onclick="location.href='/admin/users'">No</button>
+                    </div>
+                </form>
 <%@ include file="../headFootAdmin/footer.jsp" %>

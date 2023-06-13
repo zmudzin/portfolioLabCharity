@@ -5,10 +5,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import pl.revida.charity.entity.*;
-import pl.revida.charity.service.*;
+import pl.revida.charity.entity.Role;
+import pl.revida.charity.entity.User;
+import pl.revida.charity.service.RoleService;
+import pl.revida.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.Collection;
 
 @Controller
@@ -67,15 +70,34 @@ public class AdminUserController {
     }
 
     @GetMapping("/admin/users/delete/{id}")
-    public String deleteUserForm(Model model, @PathVariable long id) {
+        public String deleteUserForm(Model model, @PathVariable long id) {
         User user = userService.findById(id);
         model.addAttribute(user);
         return "userView/userDeleteForm";
     }
+        @PostMapping("/admin/users/delete/{id}")
+        public String deleteUser(User user, Principal principal) {
+            if (user != null && !user.getEmail().equals(principal.getName())) {
+                userService.deleteUser(user);
+            } else {
+                return "redirect:/admin/users";
+            }
+        return "redirect:/admin/users";
+    }
 
-    @PostMapping("/admin/users/delete/{id}")
-    public String deleteUser(User user) {
-        userService.deleteUser(user);
+    @GetMapping("/admin/users/edit/{id}")
+    public String updateUserForm(Model model, @PathVariable long id) {
+        User user = userService.findById(id);
+        model.addAttribute(user);
+        return "/userView/userEditForm";
+    }
+
+    @PostMapping("/admin/users/edit/{id}")
+    public String updateUser(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+                return "/userView/userEditForm";
+        }
+        userService.updateUser(user);
         return "redirect:/admin/users";
     }
 }

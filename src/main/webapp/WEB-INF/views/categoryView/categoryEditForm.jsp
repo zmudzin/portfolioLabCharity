@@ -24,14 +24,18 @@
                     <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
                 </div>
 
-
                 <div class="container">
-                    <h1>Institution Details</h1>
-                    <label>Name:</label>
-                    <div>${institution.name}</div>
-                    <label>Description:</label>
-                    <div>${institution.description}</div>
-                    <button class="cancel" onclick="location.href='/admin/institutions'">Back</button>
+                    <h1>Add Category</h1>
+                    <form:form method="POST" modelAttribute="category">
+                        <label>Name:</label>
+                        <div>
+                            <form:input path="name"/>
+                            <form:errors path="name" cssClass="error"/>
+                        </div>
+
+                        <input type="submit" value="Add"/>
+                    </form:form>
+                    <button class="cancel" onclick="location.href='/admin/category'" >Cancel</button>
                 </div>
-                <%@ include file="../headFootAdmin/footer.jsp" %>
+            <%@ include file="../headFootAdmin/footer.jsp" %>
 

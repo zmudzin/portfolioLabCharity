@@ -44,7 +44,10 @@
                                 <td>${donation.pickUpDate}</td>
                                 <td class="action-links">
                                     <form action="/admin/donations/${donation.id}" style="display: inline;">
-                                        <button type="submit" class="edit-button">View/Edit</button>
+                                        <button type="submit" class="edit-button">View</button>
+                                    </form>
+                                    <form action="/admin/donations/edit/${donation.id}" style="display: inline;">
+                                        <button type="submit" class="edit-button">Edit</button>
                                     </form>
                                     <form action="/admin/donations/delete/${donation.id}" style="display: inline;">
                                         <button type="submit" class="delete-button">Delete</button>

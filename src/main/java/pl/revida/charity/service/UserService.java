@@ -18,28 +18,35 @@ import java.util.Set;
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
-    public UserService(UserRepository userRepository,  BCryptPasswordEncoder passwordEncoder) {
+
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.passwordEncoder=passwordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
-    public User findById(long id){return  userRepository.findById(id);}
+
+    public User findById(long id) {
+        return userRepository.findById(id);
+    }
 
     public void createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);    }
+        userRepository.save(user);
+    }
 
-    public boolean isEmailExists (String email){
+    public boolean isEmailExists(String email) {
 
         return userRepository.existsByEmail(email);
     }
-    public List<User> findAll (){
+
+    public List<User> findAll() {
 
         return userRepository.findAll();
     }
+
     @Override
     public UserDetails loadUserByUsername(String email) {
         User user = findByEmail(email);
@@ -49,10 +56,18 @@ public class UserService implements UserDetailsService {
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         user.getRoles().forEach(r ->
                 grantedAuthorities.add(new SimpleGrantedAuthority(r.getName())));
-        return new CurrentUser(user.getEmail(),user.getPassword(),
+        return new CurrentUser(user.getEmail(), user.getPassword(),
                 grantedAuthorities, user);
     }
-    public void deleteUser(User user){userRepository.delete(user);}
 
+    public void deleteUser(User user) {
+        userRepository.delete(user);
     }
+
+    public User updateUser(User user) {
+        userRepository.delete(user);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userRepository.save(user);
+    }
+}
 

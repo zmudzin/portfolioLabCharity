@@ -25,18 +25,11 @@
                 </div>
 
 
-<div class="container">
-    <h1>Add Category</h1>
-    <form:form method="POST" modelAttribute="category">
-        <label>Name:</label>
-        <div>
-            <form:input path="name"/>
-            <form:errors path="name" cssClass="error"/>
-        </div>
-
-        <input type="submit" value="Add"/>
-    </form:form>
-    <button class="cancel" onclick="location.href='/admin/category'" >Cancel</button>
-</div>
+                <div class="container">
+                    <h1>Category Details</h1>
+                    <label>Name:</label>
+                    <div>${category.name}</div>
+                    <button class="cancel" onclick="location.href='/admin/category'">Back</button>
+                </div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
 

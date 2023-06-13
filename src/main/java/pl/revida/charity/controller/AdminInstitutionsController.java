@@ -76,4 +76,20 @@ public class AdminInstitutionsController {
         institutionService.deleteInstitution(institution);
         return "redirect:/admin/institutions";
     }
+
+    @GetMapping("/admin/institutions/edit/{id}")
+    public String updateInstitutionForm(Model model, @PathVariable long id) {
+        Institution institution = institutionService.findById(id);
+        model.addAttribute(institution);
+        return "/institutionView/institutionEditForm";
+    }
+
+    @PostMapping("/admin/institutions/edit/{id}")
+    public String updateInstitution(@Valid Institution institution, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/institutionView/institutionEditForm";
+        }
+        institutionService.updateInstitution(institution);
+        return "redirect:/admin/institutions";
+    }
 }

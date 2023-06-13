@@ -25,54 +25,31 @@
                 </div>
 
 
-<div class="container">
-    <h1>Add User</h1>
-    <form:form method="POST" modelAttribute="donation">
-        <label>Quantity:</label>
-        <div>
-            <form:input type="number" path="quantity"/>>
-        </div>
-        <label>Categories:</label>
-        <div>
-            <c:forEach items="${categories}" var="category">
-                <form:checkbox path="categories" value="${category.id}"/> ${category.name}<br/>
-            </c:forEach>
-        </div>
-        <label>Institution:</label>
-        <div>
-            <form:select path="institution.id">
-                <c:forEach items="${institutions}" var="institution">
-                    <form:option value="${institution.id}">${institution.name}</form:option>
-                </c:forEach>
-            </form:select>
-        </div>
-        <label>Street:</label>
-        <div>
-            <form:input path="street"/>
-        </div>
-        <label>City:</label>
-        <div>
-            <form:input path="city"/>
-        </div>
-        <label>Zip Code:</label>
-        <div>
-            <form:input path="zipCode"/>
-        </div>
-        <label>Pick Up Date:</label>
-        <div>
-            <form:input type="date" path="pickUpDate"/>
-        </div>
-        <label>Pick Up Time:</label>
-        <div>
-            <form:input type="time" path="pickUpTime"/>
-        </div>
-        <label>Pick Up Comment:</label>
-        <div>
-            <form:input path="pickUpComment"/>
-        </div>
-        <input type="submit" value="Donate"/>
-    </form:form>
-    <button class="cancel" onclick="location.href='/admin/donations'" >Cancel</button>
-</div>
+                <div class="container">
+                    <h1>Donation Details</h1>
+                    <label>Quantity:</label>
+                    <div>${donation.quantity}</div>
+                    <label>Categories:</label>
+                    <div>
+                        <c:forEach items="${donation.categories}" var="category">
+                            <div>${category.name}</div>
+                        </c:forEach>
+                    </div>
+                    <label>Institution:</label>
+                    <div>${donation.institution.name}</div>
+                    <label>Street:</label>
+                    <div>${donation.street}</div>
+                    <label>City:</label>
+                    <div>${donation.city}</div>
+                    <label>Zip Code:</label>
+                    <div>${donation.zipCode}</div>
+                    <label>Pick Up Date:</label>
+                    <div>${donation.pickUpDate}</div>
+                    <label>Pick Up Time:</label>
+                    <div>${donation.pickUpTime}</div>
+                    <label>Pick Up Comment:</label>
+                    <div>${donation.pickUpComment}</div>
+                    <button class="cancel" onclick="location.href='/admin/donations'">Back</button>
+                </div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
 

@@ -81,4 +81,20 @@ public class AdminDonationController {
         donationService.deleteDonation(donation1);
         return "redirect:/admin/donations";
     }
+
+    @GetMapping("/admin/donations/edit/{id}")
+    public String updateDonationForm(Model model, @PathVariable long id) {
+        Donation donation = donationService.findById(id);
+        model.addAttribute(donation);
+        return "/donationView/donationEditForm";
+    }
+
+    @PostMapping("/admin/donations/edit/{id}")
+    public String updateDonation(@Valid Donation donation, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/donationView/donationEditForm";
+        }
+        donationService.updateDonation(donation);
+        return "redirect:/admin/donations";
+    }
 }

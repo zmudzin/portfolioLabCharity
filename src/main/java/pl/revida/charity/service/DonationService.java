@@ -25,7 +25,12 @@ public class DonationService {
         return donationRepository.save(donation);
     }
     public void deleteDonation(Donation donation){donationRepository.delete(donation);}
+    public Donation updateDonation(Donation donation) {
+        donationRepository.delete(donation);
+        return donationRepository.save(donation);
+    }
 
 public Collection<Donation> findAll(){return donationRepository.findAll();}
     public Donation findById(long id){return donationRepository.findById(id);}
+
 }

@@ -20,4 +20,9 @@ public class CategoryService {
 
     public Category createCategory(Category category){return categoryRepository.save(category);}
     public void deleteCategory(Category category){categoryRepository.delete(category);}
+    public Category updateCategory(Category category) {
+        categoryRepository.delete(category);
+        return categoryRepository.save(category);
+    }
+
 }

@@ -25,13 +25,23 @@
                 </div>
 
 
-                <div class="container">
-                    <h1>Institution Details</h1>
-                    <label>Name:</label>
-                    <div>${institution.name}</div>
-                    <label>Description:</label>
-                    <div>${institution.description}</div>
-                    <button class="cancel" onclick="location.href='/admin/institutions'">Back</button>
-                </div>
+<div class="container">
+    <h1>Add Category</h1>
+    <form:form method="POST" modelAttribute="institution">
+        <label>Name:</label>
+        <div>
+            <form:input path="name"/>
+            <form:errors path="name" cssClass="error"/>
+        </div>
+        <label>Name:</label>
+        <div>
+            <form:textarea path="description" rows="8" cols="50"/>
+            <form:errors path="description" cssClass="error"/>
+        </div>
+
+        <input type="submit" value="Add"/>
+    </form:form>
+    <button class="cancel" onclick="location.href='/admin/institutions'" >Cancel</button>
+</div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
 

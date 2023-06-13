@@ -76,4 +76,20 @@ public class AdminCategoryController {
         categoryService.deleteCategory(category);
         return "redirect:/admin/category";
     }
+    @GetMapping("/admin/category/edit/{id}")
+    public String updateCategoryForm(Model model, @PathVariable long id) {
+        Category category = categoryService.findById(id);
+        model.addAttribute(category);
+        return "/categoryView/categoryEditForm";
+    }
+
+    @PostMapping("/admin/category/edit/{id}")
+    public String updateCategory(@Valid Category category, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/categoryView/categoryEditForm";
+        }
+        categoryService.updateCategory(category);
+        return "redirect:/admin/category";
+    }
+
 }
