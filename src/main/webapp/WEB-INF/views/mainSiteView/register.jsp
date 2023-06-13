@@ -6,18 +6,18 @@
     <h2>Załóż konto</h2>
     <form:form method="POST" modelAttribute="user" id="registerForm">
         <div class="form-group">
-            <form:label path="email"> email </form:label>
-            <form:input path="email" type="text"/>
+            <form:label path="email"> </form:label>
+            <form:input path="email" type="text" placeholder="Email"/>
             <form:errors path="email" cssClass="error"/>
         </div>
         <div class="form-group">
-            <form:label path="password"> password </form:label>
-            <form:input id="password" path="password" type="text"/>
+            <form:label path="password"></form:label>
+            <form:input id="password" path="password" type="text" placeholder="Hasło"/>
             <form:errors path="password" cssClass="error"/>
         </div>
         <div class="form-group">
-            <form:label path="passwordConfirm"> password </form:label>
-            <form:input id="passwordConfirm" path="passwordConfirm" type="text"/>
+            <form:label path="passwordConfirm"></form:label>
+            <form:input id="passwordConfirm" path="passwordConfirm" type="text" placeholder="Powtórz Hasło"/>
             <form:errors path="passwordConfirm" cssClass="error"/>
         </div>
         <div class="form-group form-group--buttons">

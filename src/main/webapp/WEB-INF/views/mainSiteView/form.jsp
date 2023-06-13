@@ -145,7 +145,7 @@
                                 <form:input path="zipCode" type="text"/>
                                 <form:errors path="zipCode" cssClass="error"/>
                             </div>
-
+                        </div>
                             <div class="form-section--column">
                                 <h4>Termin odbioru</h4>
                                 <div class="form-group form-group--inline">
@@ -153,7 +153,7 @@
                                     <form:input path="pickUpDate" type="date"/>
                                     <form:errors path="pickUpDate" cssClass="error"/>
                                 </div>
-                            </div>
+
 
                             <div class="form-group form-group--inline">
                                 <form:label path="pickUpTime"> Godzina </form:label>
@@ -166,14 +166,14 @@
                                 <form:textarea path="pickUpComment" rows="5"/>
                                 <form:errors path="pickUpComment" cssClass="error"/>
                             </div>
-                        </div>
+
                     </div>
                     <div class="form-group form-group--buttons">
                         <button type="button" class="btn prev-step">Wstecz</button>
                         <button type="button" class="btn next-step">Dalej</button>
                     </div>
                 </div>
-
+                </div>
                 <!-- STEP 5 -->
                 <div data-step="5">
                     <h3>Podsumowanie Twojej darowizny</h3>

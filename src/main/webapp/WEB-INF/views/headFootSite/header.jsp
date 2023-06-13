@@ -48,6 +48,5 @@
             <li><a href="${pageContext.request.contextPath}/#contactTarget" class="btn btn--without-border">Kontakt</a></li>
         </ul>
     </nav>
-
 </header>
 
