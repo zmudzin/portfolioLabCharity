@@ -13,6 +13,9 @@ insert into user_role(user_id, role_id) values (1,2);
 insert into users(email, enabled, password) VALUES ('user@user.pl',1,'$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW');
 insert into user_role(user_id, role_id) values (2,1);
 
+insert into users(email, enabled, password) VALUES ('user666@user.pl',1,'$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW');
+insert into user_role(user_id, role_id) values (3,1);
+
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Słoneczny Dzień"', 'Fundacja pomagająca dzieciom z niepełnosprawnościami poprzez organizowanie terapii i warsztatów.');
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Radosna Przyszłość"', 'Fundacja skupiająca się na wspieraniu edukacji dzieci z ubogich rodzin.');
 INSERT INTO institutions (name, description) VALUES ('Fundacja "Zdrowe Pokolenie"', 'Fundacja prowadząca programy edukacyjne na temat zdrowego stylu życia dla dzieci i młodzieży.');
@@ -26,11 +29,17 @@ INSERT INTO institutions (name, description) VALUES ('Fundacja "Nadzieja na Jutr
 
 
 
-INSERT INTO donations (quantity, street, city, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id) VALUES (5,  'Kwiaciarska 5', 'Warszawa', '01-234', '2024-06-01', '10:00:00', 'Proszę o kontakt przed przyjazdem.',2);
-INSERT INTO donations (quantity, street, city, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id) VALUES (10,  'Słoneczna 10', 'Kraków', '30-111', '2024-06-15', '13:00:00', 'Proszę o kontakt przed przyjazdem.',3);
-INSERT INTO donations (quantity, street, city, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id) VALUES (8,  'Leśna 15', 'Poznań', '61-626', '2024-06-20', '15:00:00', 'Proszę o kontakt przed przyjazdem.',2);
-INSERT INTO donations (quantity, street, city, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id) VALUES (2,  'Wiśniowa 20', 'Wrocław', '50-137', '2024-07-01', '12:00:00', 'Proszę o kontakt przed przyjazdem.',5);
-INSERT INTO donations (quantity, street, city, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id) VALUES (6,  'Jabłkowa 25', 'Gdańsk', '80-180', '2024-07-15', '14:00:00', 'Proszę o kontakt przed przyjazdem.',4);
+INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (5,  'Kwiaciarska 5', 'Warszawa',false, '01-234', '2024-06-01', '10:00:00', 'Proszę o kontakt przed przyjazdem.',2, 2);
+
+INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (5, 'Kwiaciarska 5', 'Warszawa', false, '01-234', '2024-06-01', '10:00:00', 'Proszę o kontakt przed przyjazdem.', 2, 2);
+
+INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (3, 'Główna 10', 'Kraków', false, '12-345', '2024-06-02', '12:00:00', 'Proszę o wcześniejsze potwierdzenie.', 1, 1);
+
+INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (7, 'Pomorska 8', 'Gdańsk', false, '45-678', '2024-06-03', '15:00:00', 'Proszę zostawić w portierni.', 3, 1);
+
+INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (2, 'Szkolna 3', 'Poznań', false, '90-123', '2024-06-04', '14:00:00', 'Proszę o potwierdzenie odbioru.', 1, 2);
+
+INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (4, 'Kwiatowa 7', 'Wrocław', false, '67-890', '2024-06-05', '16:00:00', 'Proszę o kontakt w celu uzgodnienia szczegółów.', 2, 2);
 
 insert into donations_categories (donation_id, category_id) values (1,3);
 insert into donations_categories (donation_id, category_id) values (1,4);

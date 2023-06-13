@@ -10,11 +10,13 @@ import org.springframework.stereotype.Service;
 import pl.revida.charity.entity.User;
 import pl.revida.charity.repository.UserRepository;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Service
+@Transactional
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
@@ -60,14 +62,37 @@ public class UserService implements UserDetailsService {
                 grantedAuthorities, user);
     }
 
-    public void deleteUser(User user) {
+    public void deleteUser (User user) {
         userRepository.delete(user);
     }
-
     public User updateUser(User user) {
-        userRepository.delete(user);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
+
+    public void updateUserEmail(Long userId, String newEmail) {
+        User user = findById(userId);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found");
+        }
+        boolean emailExists = isEmailExists(newEmail);
+        if (emailExists) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+        user.setEmail(newEmail);
+        createUser(user);
+    }
+    public void updateUserPassword(Long userId, String newPassword) {
+        User user = findById(userId);
+        if (user != null) {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword = passwordEncoder.encode(newPassword);
+            user.setPassword(encodedPassword);
+            userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("User not found with ID: " + userId);
+        }
+    }
+
 }
 

@@ -78,7 +78,10 @@ public class AdminUserController {
         @PostMapping("/admin/users/delete/{id}")
         public String deleteUser(User user, Principal principal) {
             if (user != null && !user.getEmail().equals(principal.getName())) {
-                userService.deleteUser(user);
+                user.setEnabled(false);
+                user.setRoles(null);
+                userService.createUser(user);
+               // userService.deleteUser(user);
             } else {
                 return "redirect:/admin/users";
             }

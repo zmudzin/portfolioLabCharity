@@ -48,4 +48,8 @@ public class Donation {
     private LocalTime pickUpTime;
     @Length(max = 250)
     private String pickUpComment;
+    @NotNull
+    private boolean collected = false;
+    @ManyToOne
+    private User user;
 }

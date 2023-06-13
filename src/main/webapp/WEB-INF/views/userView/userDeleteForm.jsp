@@ -14,8 +14,7 @@
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Users</h6>
                 </div>
-
-
+                <%-- Komunikat sukcesu --%>
                 <form method="post" action="/admin/users/delete/${user.id}">
                     <input type="hidden" name="email" value="${user.email}" />
                     <input type="hidden" name="password" value="${user.password}" />

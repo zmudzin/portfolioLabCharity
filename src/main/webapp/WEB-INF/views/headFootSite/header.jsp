@@ -27,6 +27,11 @@
                         <a href="${pageContext.request.contextPath}/admin" />Panel administratora</a>
                     </li>
                 </security:authorize>
+                <security:authorize access="hasRole('ROLE_USER')" >
+                    <li>
+                        <a href="${pageContext.request.contextPath}/userPanel">Panel użytkownika</a>
+                    </li>
+                </security:authorize>
             </security:authorize>
             <security:authorize access="!isAuthenticated()">
                 <li><a href="${pageContext.request.contextPath}/login" class="btn btn--small btn--without-border">Zaloguj</a></li>

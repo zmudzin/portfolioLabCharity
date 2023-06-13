@@ -12,7 +12,6 @@ import pl.revida.charity.service.UserService;
 import javax.validation.Valid;
 
 @Controller
-
 public class RegisterController {
 
     private final UserService userService;
