@@ -165,6 +165,7 @@
                                 <form:label path="pickUpComment"> Uwagi dla kuriera (opcjonalnie) </form:label>
                                 <form:textarea path="pickUpComment" rows="5"/>
                                 <form:errors path="pickUpComment" cssClass="error"/>
+                                <form:input path="user.id" type="hidden" value="${userId}"/>
                             </div>
 
                     </div>

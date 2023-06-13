@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.revida.charity.entity.Category;
 import pl.revida.charity.entity.Donation;
 import pl.revida.charity.entity.Institution;
+import pl.revida.charity.entity.User;
 import pl.revida.charity.service.CategoryService;
 import pl.revida.charity.service.DonationService;
 import pl.revida.charity.service.InstitutionService;
+import pl.revida.charity.service.UserService;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.Collection;
 
 @Controller
@@ -23,11 +26,13 @@ public class FormController {
     private DonationService donationService;
     private CategoryService categoryService;
     private InstitutionService institutionService;
+    private UserService userService;
 
-    public FormController(CategoryService categoryService, InstitutionService institutionService, DonationService donationService) {
+    public FormController(CategoryService categoryService, InstitutionService institutionService, DonationService donationService, UserService userService) {
         this.categoryService = categoryService;
         this.institutionService = institutionService;
         this.donationService = donationService;
+        this.userService = userService;
     }
 
     @ModelAttribute("institutions")
@@ -41,8 +46,11 @@ public class FormController {
     }
 
     @GetMapping("/form")
-    public String showDonation(Model model) {
+    public String showDonation(Model model, Principal principal) {
+        User user = userService.findByEmail(principal.getName());
+
         model.addAttribute("donation", new Donation());
+        model.addAttribute("userId", user.getId());
         return "mainSiteView/form";
     }
 

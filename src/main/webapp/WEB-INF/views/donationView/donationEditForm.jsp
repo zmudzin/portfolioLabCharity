@@ -68,7 +68,7 @@
         </div>
         <label>Pick Up Comment:</label>
         <div>
-            <form:input path="pickUpComment"/>
+            <form:textarea path="pickUpComment" rows="5" cols="25"/>
         </div>
         <input type="submit" value="Donate"/>
     </form:form>

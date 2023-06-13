@@ -25,24 +25,47 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
+                    <style>
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-bottom: 20px;
+                        }
+
+                        th, td {
+                            padding: 10px;
+                            text-align: left;
+                        }
+
+                        th {
+                            background-color: #f2f2f2;
+                        }
+
+                        tbody tr:nth-child(even) {
+                            background-color: #f9f9f9;
+                        }
+                    </style>
+
                     <table>
                         <thead>
                         <tr>
-                            <th>Categories</th>
-                            <th>Institution</th>
-                            <th>Quantity</th>
-                            <th>Pick Up</th>
-                            <th>Actions</th>
+                            <th>Kategorie</th>
+                            <th>Instytucja</th>
+                            <th>Ilość</th>
+                            <th>Data odbioru</th>
+                            <th>Zbierane</th>
+                            <th>Akcje</th>
                         </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${donations}" var="donation">
                             <tr>
                                 <td>${donation.categories}</td>
-                                <td> ${donation.institution}</td>
+                                <td>${donation.institution}</td>
                                 <td>${donation.quantity}</td>
                                 <td>${donation.pickUpDate}</td>
-                                <td class="action-links">
+                                <td>${donation.collected}</td>
+                                <td>
                                     <form action="/admin/donations/${donation.id}" style="display: inline;">
                                         <button type="submit" class="edit-button">View</button>
                                     </form>
@@ -55,6 +78,8 @@
                                 </td>
                             </tr>
                         </c:forEach>
+                        </tbody>
+                    </table>
                         </tbody>
                     </table>
                 </div>
