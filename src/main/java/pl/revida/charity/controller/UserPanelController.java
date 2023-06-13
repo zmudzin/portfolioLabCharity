@@ -2,25 +2,30 @@ package pl.revida.charity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import pl.revida.charity.entity.Donation;
 import pl.revida.charity.entity.User;
-import pl.revida.charity.service.RoleService;
+import pl.revida.charity.service.DonationService;
 import pl.revida.charity.service.UserService;
+
+import java.security.Principal;
+import java.util.Collection;
 
 @Controller
 public class UserPanelController {
     private final UserService userService;
-    private final RoleService roleService;
+    private final DonationService donationService;
 
-    public UserPanelController(UserService userService, RoleService roleService) {
+    public UserPanelController(UserService userService, DonationService donationService) {
         this.userService = userService;
-        this.roleService = roleService;
+        this.donationService = donationService;
     }
 
-
+    @ModelAttribute("donations")
+    public Collection<Donation> donations(Principal principal) {
+       User user = userService.findByEmail(principal.getName());
+        return this.donationService.getDonationsByUserId(user.getId());
+    }
 @RequestMapping("/userPanel")
 public String userPanel(){
         return "userPanel/userPanelIndex";

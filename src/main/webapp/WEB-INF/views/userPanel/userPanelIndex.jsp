@@ -24,16 +24,44 @@
                     <h6 class="m-0 font-weight-bold text-primary">Użytkownik</h6>
                 </div>
                 <!-- Card Body -->
-Cześć
-                        </div>
-                        <button class="cancel" onclick="location.href='/userPanel'">Back</button>
-                    </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Categories</th>
+                            <th>Institution</th>
+                            <th>Quantity</th>
+                            <th>Pick Up</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${donations}" var="donation">
+                            <tr>
+                                <td>${donation.categories}</td>
+                                <td> ${donation.institution}</td>
+                                <td>${donation.quantity}</td>
+                                <td>${donation.pickUpDate}</td>
+                                <td class="action-links">
+                                    <form action="/admin/donations/${donation.id}" style="display: inline;">
+                                        <button type="submit" class="edit-button">View</button>
+                                    </form>
+                                    <form action="/admin/donations/edit/${donation.id}" style="display: inline;">
+                                        <button type="submit" class="edit-button">Edit</button>
+                                    </form>
+                                    <form action="/admin/donations/delete/${donation.id}" style="display: inline;">
+                                        <button type="submit" class="delete-button">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </div>
-
 <!-- /.container-fluid -->
 <%@ include file="../headFootAdmin/footer.jsp" %>

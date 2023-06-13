@@ -5,6 +5,7 @@ import pl.revida.charity.entity.Donation;
 import pl.revida.charity.repository.DonationRepository;
 
 import java.util.Collection;
+import java.util.List;
 
 
 @Service
@@ -32,5 +33,7 @@ public class DonationService {
 
 public Collection<Donation> findAll(){return donationRepository.findAll();}
     public Donation findById(long id){return donationRepository.findById(id);}
-
+    public List<Donation> getDonationsByUserId(long userId) {
+        return donationRepository.findAllByUserId(userId);
+    }
 }
