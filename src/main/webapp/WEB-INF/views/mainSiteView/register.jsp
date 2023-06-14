@@ -12,12 +12,12 @@
         </div>
         <div class="form-group">
             <form:label path="password"></form:label>
-            <form:input id="password" path="password" type="text" placeholder="Hasło"/>
+            <form:input id="password" path="password" type="password" placeholder="Hasło"/>
             <form:errors path="password" cssClass="error"/>
         </div>
         <div class="form-group">
             <form:label path="passwordConfirm"></form:label>
-            <form:input id="passwordConfirm" path="passwordConfirm" type="text" placeholder="Powtórz Hasło"/>
+            <form:input id="passwordConfirm" path="passwordConfirm" type="password" placeholder="Powtórz Hasło"/>
             <form:errors path="passwordConfirm" cssClass="error"/>
         </div>
         <div class="form-group form-group--buttons">

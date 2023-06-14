@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.revida.charity.entity.User;
+import pl.revida.charity.service.EmailService;
 import pl.revida.charity.service.UserService;
 
 import javax.validation.Valid;
@@ -15,9 +16,11 @@ import javax.validation.Valid;
 public class RegisterController {
 
     private final UserService userService;
+    private final EmailService emailService;
 
-    public RegisterController(UserService userService) {
+    public RegisterController(UserService userService, EmailService emailService) {
         this.userService = userService;
+        this.emailService = emailService;
     }
 
     @GetMapping("/register")
@@ -36,6 +39,7 @@ public class RegisterController {
             return "mainSiteView/register";
         }
         userService.createUser(user);
+        emailService.sendSimpleMessage(user.getEmail(),"Witaj na stronie", "Możesz się zalogować");
         return "redirect:/register_confirmation";
     }
 
