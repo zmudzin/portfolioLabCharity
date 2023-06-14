@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.revida.charity.entity.Role;
 import pl.revida.charity.entity.User;
 import pl.revida.charity.repository.UserRepository;
 
@@ -20,10 +21,12 @@ import java.util.Set;
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final RoleService roleService;
 
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, RoleService roleService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.roleService = roleService;
     }
 
     public User findByEmail(String email) {
@@ -90,6 +93,19 @@ public class UserService implements UserDetailsService {
             throw new IllegalArgumentException("User not found with ID: " + userId);
         }
     }
+    public void addUserRole(User user, String roleName) {
+        Role role = roleService.findByName(roleName);
 
+            roleService.save(role);
+
+        Set<Role> userRoles = user.getRoles();
+        if (userRoles == null) {
+            userRoles = new HashSet<>();
+            user.setRoles(userRoles);
+        }
+
+        userRoles.add(role);
+        userRepository.save(user);
+    }
 }
 

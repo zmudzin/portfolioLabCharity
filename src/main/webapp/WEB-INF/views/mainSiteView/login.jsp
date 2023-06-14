@@ -13,7 +13,7 @@
         <div class="form-group">
             <div><label> <input type="password" name="password" placeholder="Hasło"/> </label></div>
 
-        <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
+        <a href="${pageContext.request.contextPath}/passwordReset" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>
         <div class="form-group form-group--buttons">
             <a href="${pageContext.request.contextPath}/register" class="btn btn--without-border">Załóż konto</a>

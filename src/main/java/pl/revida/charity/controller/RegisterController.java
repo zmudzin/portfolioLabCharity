@@ -38,6 +38,8 @@ public class RegisterController {
             result.rejectValue("email", "error.email.exists", "Adres e-mail już istnieje");
             return "mainSiteView/register";
         }
+        user.setEnabled(true);
+userService.addUserRole(user,"ROLE_USER");
         userService.createUser(user);
         emailService.sendSimpleMessage(user.getEmail(),"Witaj na stronie", "Możesz się zalogować");
         return "redirect:/register_confirmation";
