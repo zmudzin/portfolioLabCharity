@@ -49,6 +49,8 @@
                     <div>${donation.pickUpTime}</div>
                     <label>Pick Up Comment:</label>
                     <div>${donation.pickUpComment}</div>
+                    <label>Collected:</label>
+                    <div>${donation.collected}</div>
                     <button class="cancel" onclick="location.href='/admin/donations'">Back</button>
                 </div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
