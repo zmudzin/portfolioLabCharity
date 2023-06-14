@@ -27,7 +27,7 @@ public class DonationService {
     }
     public void deleteDonation(Donation donation){donationRepository.delete(donation);}
     public Donation updateDonation(Donation donation) {
-        donationRepository.delete(donation);
+       // donationRepository.delete(donation);
         return donationRepository.save(donation);
     }
 
@@ -36,4 +36,6 @@ public Collection<Donation> findAll(){return donationRepository.findAll();}
     public List<Donation> getDonationsByUserId(long userId) {
         return donationRepository.findAllByUserId(userId);
     }
+
+
 }

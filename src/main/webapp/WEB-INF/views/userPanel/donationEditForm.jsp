@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="../headFootAdmin/header.jsp" %>
+<%@ include file="../headFootPanel/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container-fluid">
 
@@ -21,7 +21,7 @@
                 <!-- Card Header - Dropdown -->
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Użytkownicy</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Donation</h6>
                 </div>
 
 
@@ -35,8 +35,8 @@
         <label>Categories:</label>
         <div>
             <c:forEach items="${categories}" var="category">
-                <form:checkbox path="categories" value="${category.id}"/>
-                checked="${donation.categories.contains(category) ? 'true' : ''}"/>
+                <form:checkbox path="categories" value="${category.id}"
+                               checked="${donation.categories.contains(category) ? 'true' : ''}"/>
                 ${category.name}<br/>
             </c:forEach>
         </div>
@@ -76,9 +76,10 @@
         <div>
             <form:checkbox path="collected"/>
         </div>
+        <form:input path="user.id" type="hidden" value="${userId}"/>
         <input type="submit" value="Save"/>
     </form:form>
-    <button class="cancel" onclick="location.href='/admin/donations'" >Cancel</button>
+    <button class="cancel" onclick="location.href='/userPanel/donations'" >Cancel</button>
 </div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
 

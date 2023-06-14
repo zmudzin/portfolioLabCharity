@@ -21,22 +21,22 @@
                 <!-- Card Header - Dropdown -->
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Institution</h6>
                 </div>
 
 
 <div class="container">
-    <h1>Add Category</h1>
+    <h1>Add Institution</h1>
     <form:form method="POST" modelAttribute="institution">
         <label>Name:</label>
         <div>
             <form:input path="name"/>
             <form:errors path="name" cssClass="error"/>
         </div>
-        <label>Name:</label>
+        <label>Description:</label>
         <div>
-            <form:input path="description"/>
-            <form:errors path="name" cssClass="error"/>
+            <form:textarea path="description" rows="5" cols="25"/>
+            <form:errors path="description" cssClass="error"/>
         </div>
 
         <input type="submit" value="Add"/>

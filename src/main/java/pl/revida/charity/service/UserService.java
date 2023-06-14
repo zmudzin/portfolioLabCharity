@@ -65,10 +65,6 @@ public class UserService implements UserDetailsService {
     public void deleteUser (User user) {
         userRepository.delete(user);
     }
-    public User updateUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
-    }
 
     public void updateUserEmail(Long userId, String newEmail) {
         User user = findById(userId);
@@ -80,7 +76,8 @@ public class UserService implements UserDetailsService {
             throw new IllegalArgumentException("Email already exists");
         }
         user.setEmail(newEmail);
-        createUser(user);
+        userRepository.save(user);
+        //updateUser(user);
     }
     public void updateUserPassword(Long userId, String newPassword) {
         User user = findById(userId);

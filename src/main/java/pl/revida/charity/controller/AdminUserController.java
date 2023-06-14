@@ -65,6 +65,7 @@ public class AdminUserController {
                 return "userView/userAddForm";
             }
         }
+
         userService.createUser(user);
         return "redirect:/admin/users";
     }
@@ -100,7 +101,7 @@ public class AdminUserController {
         if (result.hasErrors()) {
                 return "/userView/userEditForm";
         }
-        userService.updateUser(user);
+        userService.createUser(user);
         return "redirect:/admin/users";
     }
 }
