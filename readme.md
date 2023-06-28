@@ -1,4 +1,4 @@
-Portfolio Web Application
+Charity Web Application
 
 This is a portfolio web application that allows users to showcase their work and includes features such as a login-activated form, double validation, user registration with password verification, user panel for changing passwords and email addresses, administrative panel for managing foundations, categories, donations, and users, as well as the ability to send password reset emails and account confirmation emails.
 
