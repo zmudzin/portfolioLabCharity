@@ -25,7 +25,7 @@ Getting Started
 To get started with this application, follow these steps:
 
 1. Clone the repository: git clone https://github.com/your-username/portfolio-app.git
-2. Navigate to the project directory: cd portfolio-app
+2. Navigate to the project directory: cd portfolioLabCharity
 3. Install the dependencies: mvn install
 4. Configure the application properties such as database connection settings and email configuration in the application.properties file.
 5. Build and run the application: mvn spring-boot:run
