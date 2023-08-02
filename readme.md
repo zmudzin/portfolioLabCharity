@@ -21,7 +21,10 @@ Technologies Used
 * Spring Form
 * Spring Security
 * Spring Email
+* Docker
+
 Getting Started
+
 To get started with this application, follow these steps:
 
 1. Clone the repository: git clone https://github.com/your-username/portfolio-app.git
