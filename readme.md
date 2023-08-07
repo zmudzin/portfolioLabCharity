@@ -13,6 +13,9 @@ Features
 
 * Administrative Panel: The administrative panel offers functionalities such as editing and deleting foundations, categories, donations, and users. It serves as a powerful tool for managing the application's content and maintaining its relevance.
 
+* login:password - admin@admin.pl:password, user.user.pl:password
+
+
 Technologies Used
 * Spring Boot
 * Hibernate
