@@ -19,7 +19,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
-    @Email
+    //@Email
     @Column(unique = true)
     private String email;
     @NotBlank

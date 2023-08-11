@@ -40,11 +40,11 @@
                                 <td>${user.enabled}<td>
                                 <td class="action-links">
                                     <form action="/admin/users/${user.id}" style="display: inline;">
-                                        <button type="submit" class="edit-button">View</button>
+                                        <button type="submit" class="edit-button">View/Edit</button>
                                     </form>
-                                <form action="/admin/users/edit/${user.id}" style="display: inline;">
-                                    <button type="submit" class="edit-button">Edit</button>
-                                </form>
+<%--                                <form action="/admin/users/edit/${user.id}" style="display: inline;">--%>
+<%--                                    <button type="submit" class="edit-button">Edit</button>--%>
+<%--                                </form>--%>
                                     <form action="/admin/users/delete/${user.id}" style="display: inline;">
                                         <button type="submit" class="delete-button">Delete</button>
                                     </form>

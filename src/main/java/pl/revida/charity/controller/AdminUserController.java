@@ -1,5 +1,7 @@
 package pl.revida.charity.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +12,7 @@ import pl.revida.charity.entity.User;
 import pl.revida.charity.service.RoleService;
 import pl.revida.charity.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.Collection;
@@ -89,19 +92,52 @@ public class AdminUserController {
         return "redirect:/admin/users";
     }
 
-    @GetMapping("/admin/users/edit/{id}")
-    public String updateUserForm(Model model, @PathVariable long id) {
-        User user = userService.findById(id);
-        model.addAttribute(user);
-        return "/userView/userEditForm";
-    }
+//    @GetMapping("/admin/users/edit/{id}")
+//    public String updateUserForm(Model model, @PathVariable long id) {
+//        User user = userService.findById(id);
+//        model.addAttribute(user);
+//        return "/userView/userEditForm";
+//    }
+//
+//    @PostMapping("/admin/users/edit/{id}")
+//    public String updateUser(@Valid User user, BindingResult result) {
+//        if (result.hasErrors()) {
+//                return "/userView/userEditForm";
+//        }
+//        userService.createUser(user);
+//        return "redirect:/admin/users";
+//    }
 
-    @PostMapping("/admin/users/edit/{id}")
-    public String updateUser(@Valid User user, BindingResult result) {
-        if (result.hasErrors()) {
-                return "/userView/userEditForm";
-        }
-        userService.createUser(user);
+    @PostMapping("/admin/updateEmail/{id}")
+    public String updateUserEmail(@PathVariable Long id, @RequestParam("newEmail") String newEmail, HttpServletRequest request) {
+
+        userService.updateUserEmail(id, newEmail);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        authentication.setAuthenticated(false);
+        SecurityContextHolder.clearContext();
+        request.getSession().invalidate();
+
+        return "redirect:/login?logout"; // Przekierowanie do strony logowania z informacją o wylogowaniu
+
+    }
+    @PostMapping("/admin/updatePassword/{id}")
+    public String updateUserPassword(@PathVariable Long id, @RequestParam("newPassword") String newPassword) {
+        userService.updateUserPassword(id, newPassword);
         return "redirect:/admin/users";
     }
+
+    @PostMapping("/admin/updateEnabled/{id}")
+    public String updateUserPassword(@PathVariable Long id, @RequestParam("enabled") boolean enabled) {
+        userService.updateUserEnabled(id, enabled);
+        return "redirect:/admin/users";
+    }
+
+    @PostMapping("/admin/updateUserRole/{id}")
+    public String updateUserRole(@PathVariable Long id, @RequestParam("roleName") String roleName) {
+        User user = userService.findById(id);
+        userService.updateUserRole(user,roleName);
+        return "redirect:/admin/users";
+    }
+
+
 }

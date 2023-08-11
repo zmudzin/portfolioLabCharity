@@ -26,7 +26,7 @@
 
 
 <div class="container">
-    <h1>Add User</h1>
+    <h1>Edit User</h1>
     <form:form method="POST" modelAttribute="user">
         <label>Email:</label>
         <div>
@@ -40,7 +40,7 @@
         </div>
         <label>Password:</label>
         <div>
-            <form:password path="password"/>
+            <form:password path="password" value=""/>
             <form:errors path="password" cssClass="error"/>
         </div>
         <label>Role:</label>
@@ -49,7 +49,7 @@
                          items="${roles}" itemLabel="name" itemValue="id"/>
             <form:errors path="roles" cssClass="error"/>
         </div>
-        <input type="submit" value="Add"/>
+        <input type="submit" value="Save"/>
     </form:form>
     <button class="cancel" onclick="location.href='/admin/users'" >Cancel</button>
 </div>

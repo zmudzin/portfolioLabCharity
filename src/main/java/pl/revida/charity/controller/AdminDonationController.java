@@ -1,5 +1,6 @@
 package pl.revida.charity.controller;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -78,8 +79,12 @@ public class AdminDonationController {
     @PostMapping("/admin/donations/delete/{id}")
     public String deleteDonation(@PathVariable long id) {
         Donation donation1 = donationService.findById(id);
-        donationService.deleteDonation(donation1);
-        return "redirect:/admin/donations";
+        try {
+            donationService.deleteDonation(donation1);
+            return "redirect:/admin/donations";
+        }catch (DataIntegrityViolationException ex) {
+            return "redirect:/admin/donations?deleteError=AssociatedItems";
+        }
     }
 
     @GetMapping("/admin/donations/edit/{id}")

@@ -65,7 +65,7 @@ public class UserService implements UserDetailsService {
                 grantedAuthorities, user);
     }
 
-    public void deleteUser (User user) {
+    public void deleteUser(User user) {
         userRepository.delete(user);
     }
 
@@ -80,8 +80,8 @@ public class UserService implements UserDetailsService {
         }
         user.setEmail(newEmail);
         userRepository.save(user);
-        //updateUser(user);
     }
+
     public void updateUserPassword(Long userId, String newPassword) {
         User user = findById(userId);
         if (user != null) {
@@ -93,11 +93,19 @@ public class UserService implements UserDetailsService {
             throw new IllegalArgumentException("User not found with ID: " + userId);
         }
     }
+
+    public void updateUserEnabled(Long userId, boolean enabled) {
+        User user = findById(userId);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found");
+        } else {
+            user.setEnabled(enabled);
+            userRepository.save(user);
+        }
+    }
+
     public void addUserRole(User user, String roleName) {
         Role role = roleService.findByName(roleName);
-
-            roleService.save(role);
-
         Set<Role> userRoles = user.getRoles();
         if (userRoles == null) {
             userRoles = new HashSet<>();
@@ -107,5 +115,19 @@ public class UserService implements UserDetailsService {
         userRoles.add(role);
         userRepository.save(user);
     }
+    public void updateUserRole(User user, String roleName) {
+        Role role = roleService.findByName(roleName);
+        Set<Role> userRoles = user.getRoles();
+        if (userRoles != null) {
+            userRoles.clear();
+            userRoles = new HashSet<>();
+            user.setRoles(userRoles);
+        }
+
+        assert userRoles != null;
+        userRoles.add(role);
+        userRepository.save(user);
+    }
+
 }
 
