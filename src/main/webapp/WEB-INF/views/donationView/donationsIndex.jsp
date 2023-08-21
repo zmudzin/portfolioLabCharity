@@ -7,8 +7,8 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Wróć na stronę główną</a>
+        <a href="/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Back to main site</a>
     </div>
 
     <!-- Content Row -->
@@ -49,12 +49,12 @@
                     <table>
                         <thead>
                         <tr>
-                            <th>Kategorie</th>
-                            <th>Instytucja</th>
-                            <th>Ilość</th>
-                            <th>Data odbioru</th>
-                            <th>Zbierane</th>
-                            <th>Akcje</th>
+                            <th>Categories</th>
+                            <th>Institutions</th>
+                            <th>Quantity</th>
+                            <th>Pickup date</th>
+                            <th>Collected</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>

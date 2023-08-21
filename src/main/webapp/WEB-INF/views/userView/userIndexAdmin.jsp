@@ -7,8 +7,8 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Wróć na stronę główną</a>
+        <a href="/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Back to main site</a>
     </div>
 
     <!-- Content Row -->
@@ -21,8 +21,28 @@
                 <!-- Card Header - Dropdown -->
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Użytkownicy</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Users</h6>
                 </div>
+                <style>
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-bottom: 20px;
+                    }
+
+                    th, td {
+                        padding: 10px;
+                        text-align: left;
+                    }
+
+                    th {
+                        background-color: #f2f2f2;
+                    }
+
+                    tbody tr:nth-child(even) {
+                        background-color: #f9f9f9;
+                    }
+                </style>
                 <!-- Card Body -->
                 <div class="card-body">
                     <table>
@@ -37,14 +57,11 @@
                         <c:forEach items="${users}" var="user">
                             <tr>
                                 <td>${user.email}</td>
-                                <td>${user.enabled}<td>
+                                <td>${user.enabled}</td>
                                 <td class="action-links">
                                     <form action="/admin/users/${user.id}" style="display: inline;">
                                         <button type="submit" class="edit-button">View/Edit</button>
                                     </form>
-<%--                                <form action="/admin/users/edit/${user.id}" style="display: inline;">--%>
-<%--                                    <button type="submit" class="edit-button">Edit</button>--%>
-<%--                                </form>--%>
                                     <form action="/admin/users/delete/${user.id}" style="display: inline;">
                                         <button type="submit" class="delete-button">Delete</button>
                                     </form>

@@ -36,12 +36,12 @@ public class PasswordResetController {
             userService.updateUserPassword(user.getId(), randomPassword);
 
             String recipient = email;
-            String subject = "Resetowanie hasła";
-            String body = "Twoje nowe hasło to: " + randomPassword;
+            String subject = "Password reset";
+            String body = "Remember that after you login, You can change your password. Your new password is: " + randomPassword;
 
             emailService.sendSimpleMessage(recipient, subject, body);
 
-            model.addAttribute("message", "Wiadomość z nowym hasłem została wysłana na adres " + email);
+            model.addAttribute("message", "Message with new email was send on email " + email);
         }
 
         return "/index";

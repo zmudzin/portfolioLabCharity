@@ -74,7 +74,7 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                 <div class="bg-white py-3 collapse-inner rounded">
                     <h6 class="collapse-header">Change data:</h6>
-                    <a class="collapse-item" href="${pageContext.request.contextPath}/userPanel/donations">View/Add</a>
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/userPanel/donations">View</a>
                 </div>
             </div>
         </li>

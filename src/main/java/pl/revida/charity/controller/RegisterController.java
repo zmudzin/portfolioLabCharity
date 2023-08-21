@@ -35,13 +35,13 @@ public class RegisterController {
             return "mainSiteView/register";
         }
         if (userService.isEmailExists(user.getEmail())) {
-            result.rejectValue("email", "error.email.exists", "Adres e-mail już istnieje");
+            result.rejectValue("email", "error.email.exists", " e-mail already exists");
             return "mainSiteView/register";
         }
         user.setEnabled(true);
 userService.addUserRole(user,"ROLE_USER");
         userService.createUser(user);
-        emailService.sendSimpleMessage(user.getEmail(),"Witaj na stronie", "Możesz się zalogować");
+        emailService.sendSimpleMessage(user.getEmail(),"Welcome!", "You can login");
         return "redirect:/register_confirmation";
     }
 

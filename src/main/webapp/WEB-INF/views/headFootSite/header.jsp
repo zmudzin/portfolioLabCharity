@@ -29,7 +29,7 @@
                 </security:authorize>
                 <security:authorize access="hasRole('ROLE_USER')" >
                     <li>
-                        <a href="${pageContext.request.contextPath}/userPanel">User panel</a>
+                        <a href="${pageContext.request.contextPath}/userPanel/userPanelIndex">User panel</a>
                     </li>
                 </security:authorize>
             </security:authorize>

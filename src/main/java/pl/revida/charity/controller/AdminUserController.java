@@ -92,22 +92,6 @@ public class AdminUserController {
         return "redirect:/admin/users";
     }
 
-//    @GetMapping("/admin/users/edit/{id}")
-//    public String updateUserForm(Model model, @PathVariable long id) {
-//        User user = userService.findById(id);
-//        model.addAttribute(user);
-//        return "/userView/userEditForm";
-//    }
-//
-//    @PostMapping("/admin/users/edit/{id}")
-//    public String updateUser(@Valid User user, BindingResult result) {
-//        if (result.hasErrors()) {
-//                return "/userView/userEditForm";
-//        }
-//        userService.createUser(user);
-//        return "redirect:/admin/users";
-//    }
-
     @PostMapping("/admin/updateEmail/{id}")
     public String updateUserEmail(@PathVariable Long id, @RequestParam("newEmail") String newEmail, HttpServletRequest request) {
 
