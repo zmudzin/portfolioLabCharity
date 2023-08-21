@@ -224,4 +224,4 @@
     </section>
 
 
-    <%@ include file="../headFootSite/footer.jsp" %>%>
+    <%@ include file="../headFootSite/footerform.jsp" %>

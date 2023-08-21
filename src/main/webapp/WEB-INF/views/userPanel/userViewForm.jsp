@@ -47,7 +47,7 @@
                             <div>${role.name}</div>
                         </c:forEach>
                     </div>
-                    <button class="cancel" onclick="location.href='${pageContext.request.contextPath}/userPanel'">Back</button>
+<%--                    <button class="cancel" onclick="location.href='${pageContext.request.contextPath}/userPanel'">Back</button>--%>
                 </div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
 

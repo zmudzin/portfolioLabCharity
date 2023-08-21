@@ -57,7 +57,7 @@
                         <button type="submit">Change Role</button>
                     </form>
 
-                    <button class="cancel" onclick="location.href='${pageContext.request.contextPath}/userPanel'">Back</button>
+                    <button class="cancel" onclick="location.href='${pageContext.request.contextPath}/admin/users'">Back</button>
                 </div>
                 <%@ include file="../headFootAdmin/footer.jsp" %>
 

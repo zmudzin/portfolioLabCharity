@@ -61,7 +61,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Change details:</h6>
-                    <a class="collapse-item" href="${pageContext.request.contextPath}/userPanel/<security:authentication property="name"/> ">View/Add</a>
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/userPanel/<security:authentication property="name"/> ">View</a>
                 </div>
             </div>
         </li>
