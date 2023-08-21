@@ -17,35 +17,35 @@
     <nav class="container container--70">
         <ul class="nav--actions">
             <security:authorize access="isAuthenticated()">
-             <li> Witaj, <security:authentication property="name" /> </li>
+             <li> Hello, <security:authentication property="name" /> </li>
                 <li><form action="<c:url value="/logout"/>" method="post">
                     <input class="fa fa-id-badge" type="submit" value="Wyloguj">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </form></li>
                 <security:authorize access="hasRole('ROLE_ADMIN')">
                     <li>
-                        <a href="${pageContext.request.contextPath}/admin" />Panel administratora</a>
+                        <a href="${pageContext.request.contextPath}/admin" />Admin panel</a>
                     </li>
                 </security:authorize>
                 <security:authorize access="hasRole('ROLE_USER')" >
                     <li>
-                        <a href="${pageContext.request.contextPath}/userPanel">Panel użytkownika</a>
+                        <a href="${pageContext.request.contextPath}/userPanel">User panel</a>
                     </li>
                 </security:authorize>
             </security:authorize>
             <security:authorize access="!isAuthenticated()">
-                <li><a href="${pageContext.request.contextPath}/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
-                <li><a href="${pageContext.request.contextPath}/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+                <li><a href="${pageContext.request.contextPath}/login" class="btn btn--small btn--without-border">Login</a></li>
+                <li><a href="${pageContext.request.contextPath}/register" class="btn btn--small btn--highlighted">Create account</a></li>
             </security:authorize>
         </ul>
 
         <ul>
             <li><a href="${pageContext.request.contextPath}/" class="btn btn--without-border active">Start</a></li>
-            <li><a href="${pageContext.request.contextPath}/#stepsTarget" class="btn btn--without-border">O co chodzi?</a></li>
-            <li><a href="${pageContext.request.contextPath}/#aboutUsTarget" class="btn btn--without-border">O nas</a></li>
-            <li><a href="${pageContext.request.contextPath}/#helpTarget" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="${pageContext.request.contextPath}/form#scrollTarget" class="btn btn--without-border">Przekaż dary</a></li>
-            <li><a href="${pageContext.request.contextPath}/#contactTarget" class="btn btn--without-border">Kontakt</a></li>
+            <li><a href="${pageContext.request.contextPath}/#stepsTarget" class="btn btn--without-border">What is going on?</a></li>
+            <li><a href="${pageContext.request.contextPath}/#aboutUsTarget" class="btn btn--without-border">About us</a></li>
+            <li><a href="${pageContext.request.contextPath}/#helpTarget" class="btn btn--without-border">Foundations and organizations</a></li>
+            <li><a href="${pageContext.request.contextPath}/form#scrollTarget" class="btn btn--without-border">Give gifts</a></li>
+            <li><a href="${pageContext.request.contextPath}/#contactTarget" class="btn btn--without-border">Contact</a></li>
         </ul>
     </nav>
 </header>

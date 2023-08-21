@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const categoryElements = this.$form.querySelectorAll('input[name="categories"]:checked');
                         if (categoryElements.length === 0) {
 
-                            alert("Wybierz co chcesz oddać");
+                            alert("Pick what you want to donate");
                             return;
                         }
                     }
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const bags = document.getElementById("quantity").value;
                         if (bags === "") {
 
-                            alert("Podaj ilość worków");
+                            alert("Enter number of bags");
                             return;
                         }
                     }
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const institutionElements = this.$form.querySelectorAll('input[name="institution"]:checked');
                         if (institutionElements.length === 0) {
 
-                            alert("Wybierz fundację, której chcesz przekazać dary");
+                            alert("Choose the foundation you want to donate to");
                             return;
                         }
                     }
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const currentDate = new Date();
                         const pickUpDate1 = new Date(pickUpDateValue);
                         if (pickUpDate1 < currentDate) {
-                            alert("Proszę wpisać datę z przyszłości");
+                            alert("Please enter a future date");
                             return;}else {
                             const street = streetInput.value.trim();
                             const city = cityInput.value.trim();
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             const pickUpTime = pickUpTimeInput.value.trim();
                             if (street === "" || city === "" || zipCode === "" || pickUpDate === "" || pickUpTime === "") {
 
-                                alert("Proszę wypełnić wszystkie pola");
+                                alert("Please complete all fields");
                                 return;
                             }
                         }
@@ -237,8 +237,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const pickUpComment = form.querySelector('textarea[name="pickUpComment"]').value;
 
 
-            document.getElementById("bagsSummary").innerText = "Ilość worków: " + bags + " kategorie: " + selectedCategoriesString + " w dobrym stanie";
-            document.getElementById("institutionSummary").innerText = "Dla fundacji " + institutionName;
+            document.getElementById("bagsSummary").innerText = "Number of Bags: " + bags + ", Categories: " + selectedCategoriesString + " - in good shape";
+            document.getElementById("institutionSummary").innerText = "For the foundation " + institutionName;
             document.getElementById("addressSummary").innerText = `${street}, ${city}, ${zipCode}`;
             document.getElementById("pickupSummary").innerText = `${pickUpDate}, ${pickUpTime}, ${pickUpComment}`;
         }
@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
     registerForm.addEventListener("submit", function (event) {
         if (passwordInput.value !== passwordConfirmInput.value) {
             event.preventDefault();
-            alert("Hasło i potwierdzenie hasła nie są identyczne");
+            alert("Password and password confirmation are not identical");
         }
     });
 });

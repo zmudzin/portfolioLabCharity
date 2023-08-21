@@ -4,7 +4,7 @@
 <%@ include file="../headFootSite/header.jsp" %>
 
 <section class="login-page">
-    <h2>Zaloguj się</h2>
+    <h2>Login</h2>
     <form method="post">
 
         <div class="form-group">
@@ -12,8 +12,8 @@
         </div>
 
         <div class="form-group form-group--buttons">
-            <a href="${pageContext.request.contextPath}/passwordReset" class="btn btn--without-border">Wyślij nowe hasło</a>
-            <button class="btn" type="submit">Wyślij</button>
+            <a href="${pageContext.request.contextPath}/passwordReset" class="btn btn--without-border">Send New Password</a>
+            <button class="btn" type="submit">Send</button>
         </div>
     </form>
 </section>

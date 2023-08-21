@@ -15,6 +15,8 @@ Features
 
 * login:password - admin@admin.pl:password, user@user.pl:password
 
+* Sending Emails (after email account setting) - Registration, Password forget.
+
 
 Technologies Used
 * Spring Boot

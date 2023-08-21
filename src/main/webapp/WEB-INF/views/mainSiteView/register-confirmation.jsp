@@ -5,7 +5,7 @@
 <header class="header--form-page">
     <div class="slogan container container--90">
         <h2>
-            Dziękujemy za rejestracje. Prosimy czekać na potwierdzenie email.
+            Thank you for your registrations. Please wait for your email confirmation.
         </h2>
     </div>
 </header>

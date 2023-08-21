@@ -5,8 +5,8 @@
 <header class="header--form-page">
     <div class="slogan container container--90">
         <h2>
-            Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie
-            informacje o odbiorze.
+            Thank you for submitting the form by email, we will send any
+            information about the reception.
         </h2>
     </div>
 </header>

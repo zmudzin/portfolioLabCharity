@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>Dashboard</title>
 
   <!-- Custom styles for this template-->
   <link href="<c:url value="/resources/css/sb-admin-2.css"/>" rel="stylesheet">
@@ -30,7 +30,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
       </div>
-      <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      <div class="sidebar-brand-text mx-3">Admin <sup>2</sup></div>
     </a>
 
     <!-- Divider -->
@@ -40,7 +40,7 @@
     <li class="nav-item active">
       <a class="nav-link" href="${pageContext.request.contextPath}/">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>przekazdary.pl</span></a>
+        <span>donatecharity.com</span></a>
     </li>
 
     <!-- Divider -->
@@ -48,7 +48,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-      Użytkownicy/Donacje
+      Users/Donations
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -56,13 +56,13 @@
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
          aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Użytkownicy</span>
+        <span>Users</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Wybierz:</h6>
-          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/users">Przeglądaj</a>
-          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/users/add">Dodaj</a>
+          <h6 class="collapse-header">Select:</h6>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/users">View</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/users/add">Add</a>
         </div>
       </div>
     </li>
@@ -72,14 +72,14 @@
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
          aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-wrench"></i>
-        <span>Donacje</span>
+        <span>Donations</span>
       </a>
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
            data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Wybierz:</h6>
-          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/donations">Przeglądaj</a>
-          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/donations/add">Dodaj</a>
+          <h6 class="collapse-header">Select:</h6>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/donations">View</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/donations/add">Add</a>
         </div>
       </div>
     </li>
@@ -89,7 +89,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-      Kategorie/Zmienne
+      Categories/Institutions
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -97,17 +97,17 @@
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
          aria-expanded="true" aria-controls="collapsePages">
         <i class="fas fa-fw fa-folder"></i>
-        <span>Dane</span>
+        <span>Select</span>
       </a>
       <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Kategorie:</h6>
-          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/category">Przeglądaj</a>
-          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/category/add">Dodaj</a>
+          <h6 class="collapse-header">Categories:</h6>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/category">View</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/category/add">Add</a>
           <div class="collapse-divider"></div>
-          <h6 class="collapse-header">Instytucje:</h6>
-          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/institutions">Przeglądaj</a>
-          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/institutions/add">Dodaj</a>
+          <h6 class="collapse-header">Institutions:</h6>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/institutions">View</a>
+          <a class="collapse-item" href="${pageContext.request.contextPath}/admin/institutions/add">Add</a>
         </div>
       </div>
     </li>
