@@ -35,9 +35,9 @@ public class UserPanelDonationController {
 
 
     @ModelAttribute("donations")
-    public Page<Donation> donations(Principal principal, Pageable pageable) {
+    public Collection<Donation> donations(Principal principal) {
        User user = userService.findByEmail(principal.getName());
-        return this.donationService.getDonationsByUserId(user.getId(),pageable);
+        return this.donationService.getDonationsByUserId(user.getId());
     }
     @ModelAttribute("institutions")
     public Collection<Institution> institutions() {

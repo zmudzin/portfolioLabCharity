@@ -17,7 +17,7 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     Optional<Long> totalQuantity();
     List<Donation> findAll();
     Donation findById(long id);
-    Page<Donation> findAllByUserId(long id, Pageable pageable);
+    List<Donation> findAllByUserId(long id);
     Page<Donation> findAllByOrderByInstitutionNameAsc(Pageable pageable);
     Page<Donation> findAllByOrderByInstitutionNameDesc(Pageable pageable);
     Page<Donation> findAllByOrderByQuantityAsc(Pageable pageable);

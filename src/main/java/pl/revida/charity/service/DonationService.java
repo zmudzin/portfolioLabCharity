@@ -35,8 +35,8 @@ public class DonationService {
 
     public List<Donation> findAll(){return donationRepository.findAll();}
     public Donation findById(long id){return donationRepository.findById(id);}
-    public Page<Donation> getDonationsByUserId(long userId, Pageable pageable) {
-        return donationRepository.findAllByUserId(userId, pageable);
+    public List<Donation> getDonationsByUserId(long userId) {
+        return donationRepository.findAllByUserId(userId);
     }
     public Page<Donation> findAllSortedByNameAsc(Pageable pageable) {
         return donationRepository.findAllByOrderByInstitutionNameAsc(pageable);
