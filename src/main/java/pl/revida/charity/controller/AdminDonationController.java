@@ -47,18 +47,15 @@ public String findAllDonations(@RequestParam(name = "sort", defaultValue = "name
                                @RequestParam(name = "direction", defaultValue = "asc") String direction,
                                @RequestParam(name = "collected", required = false) Boolean collected,
                                @RequestParam(name = "userEmail", required = false) String userEmail,
-                            //   @RequestParam(name = "page", defaultValue = "0") int page,
-                            //   @RequestParam(name = "size", defaultValue = "10") int size,
                                Model model) {
-   // Pageable pageable = PageRequest.of(page, size);
-  // Page<Donation> donationsPage;
+
     Collection<Donation> donations;
     if (collected != null) {
         donations = donationService.findAllByCollected(collected);
-       // donationsPage = donationService.findAllByCollected(collected, pageable);
+
     } else if (userEmail != null && !userEmail.isEmpty()) {
             donations = donationService.findByUserEmailContaining(userEmail);
-        //    donationsPage = donationService.findByUserEmailContaining(userEmail, pageable);
+
         } else {
             switch (sort) {
                 case "name" -> {
@@ -94,9 +91,7 @@ public String findAllDonations(@RequestParam(name = "sort", defaultValue = "name
         }
 
            model.addAttribute("donations", donations);
-//        model.addAttribute("donations", donationsPage.getContent());
-//        model.addAttribute("currentPage", donationsPage.getNumber());
-//        model.addAttribute("totalPages", donationsPage.getTotalPages());
+
         return "donationView/donationsIndex";
     }
 
