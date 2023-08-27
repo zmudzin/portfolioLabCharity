@@ -1,6 +1,8 @@
 package pl.revida.charity.controller;
 
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,9 +10,9 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import pl.revida.charity.entity.*;
 import pl.revida.charity.service.*;
-
 import javax.validation.Valid;
 import java.util.Collection;
+import org.springframework.data.domain.Pageable;
 
 @Controller
 public class AdminDonationController {
@@ -40,10 +42,65 @@ public class AdminDonationController {
         return categoryService.findAll();
     }
 
-    @RequestMapping("/admin/donations")
-    public String findAllDonations() {
+@RequestMapping("/admin/donations")
+public String findAllDonations(@RequestParam(name = "sort", defaultValue = "name") String sort,
+                               @RequestParam(name = "direction", defaultValue = "asc") String direction,
+                               @RequestParam(name = "collected", required = false) Boolean collected,
+                               @RequestParam(name = "userEmail", required = false) String userEmail,
+                            //   @RequestParam(name = "page", defaultValue = "0") int page,
+                            //   @RequestParam(name = "size", defaultValue = "10") int size,
+                               Model model) {
+   // Pageable pageable = PageRequest.of(page, size);
+  // Page<Donation> donationsPage;
+    Collection<Donation> donations;
+    if (collected != null) {
+        donations = donationService.findAllByCollected(collected);
+       // donationsPage = donationService.findAllByCollected(collected, pageable);
+    } else if (userEmail != null && !userEmail.isEmpty()) {
+            donations = donationService.findByUserEmailContaining(userEmail);
+        //    donationsPage = donationService.findByUserEmailContaining(userEmail, pageable);
+        } else {
+            switch (sort) {
+                case "name" -> {
+                    if (direction.equals("asc")) {
+                        donations = donationService.findAllSortedByNameAsc();
+                    } else {
+                        donations = donationService.findAllSortedByNameDesc();
+                    }
+                }
+                case "quantity" -> {
+                    if (direction.equals("asc")) {
+                        donations = donationService.findAllSortedByQuantityAsc();
+                    } else {
+                        donations = donationService.findAllSortedByQuantityDesc();
+                    }
+                }
+                case "pickUpDate" -> {
+                    if (direction.equals("asc")) {
+                        donations = donationService.findAllSortedByPickupDateAsc();
+                    } else {
+                        donations = donationService.findAllSortedByPickupDesc();
+                    }
+                }
+                case "user" -> {
+                    if (direction.equals("asc")) {
+                        donations = donationService.findAllSortedByUserAsc();
+                    } else {
+                        donations = donationService.findAllSortedByUserDesc();
+                    }
+                }
+                default -> donations = donationService.findAll();
+            }
+        }
+
+           model.addAttribute("donations", donations);
+//        model.addAttribute("donations", donationsPage.getContent());
+//        model.addAttribute("currentPage", donationsPage.getNumber());
+//        model.addAttribute("totalPages", donationsPage.getTotalPages());
         return "donationView/donationsIndex";
     }
+
+
 
     @RequestMapping("/admin/donations/{id}")
     public String getDonation(Model model, @PathVariable long id) {

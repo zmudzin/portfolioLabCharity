@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.revida.charity.entity.Donation;
 import pl.revida.charity.entity.Role;
 import pl.revida.charity.entity.User;
 import pl.revida.charity.repository.UserRepository;
@@ -50,6 +51,9 @@ public class UserService implements UserDetailsService {
     public List<User> findAll() {
 
         return userRepository.findAll();
+    }
+    public List<User> findByEmailContaining(String Email) {
+        return userRepository.findByEmailContaining(Email);
     }
 
     @Override

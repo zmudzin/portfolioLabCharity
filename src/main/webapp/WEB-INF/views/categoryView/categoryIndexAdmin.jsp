@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <style>
                         table {
-                            width: 100%;
+                            width: 60%;
                             border-collapse: collapse;
                             margin-bottom: 20px;
                         }
