@@ -4750,7 +4750,7 @@ input[type="button"].btn-block {
 }
 
 .pagination {
-  display: flex;
+  /*display: flex;*/
   padding-left: 0;
   list-style: none;
   border-radius: 0.35rem;

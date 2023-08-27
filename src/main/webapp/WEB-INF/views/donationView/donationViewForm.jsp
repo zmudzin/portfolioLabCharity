@@ -27,6 +27,8 @@
 
                 <div class="container">
                     <h1>Donation Details</h1>
+                    <label>User:</label>
+                    <div>${donation.user.email}</div>
                     <label>Quantity:</label>
                     <div>${donation.quantity}</div>
                     <label>Categories:</label>

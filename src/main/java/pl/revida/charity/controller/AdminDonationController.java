@@ -17,19 +17,14 @@ import org.springframework.data.domain.Pageable;
 @Controller
 public class AdminDonationController {
     private final DonationService donationService;
-    private CategoryService categoryService;
-    private InstitutionService institutionService;
+    private final CategoryService categoryService;
+    private final InstitutionService institutionService;
 
     public AdminDonationController(DonationService donationService, CategoryService categoryService, InstitutionService institutionService) {
         ;
         this.donationService = donationService;
         this.categoryService = categoryService;
         this.institutionService = institutionService;
-    }
-
-    @ModelAttribute("donations")
-    public Collection<Donation> donations() {
-        return this.donationService.findAll();
     }
 
     @ModelAttribute("institutions")
@@ -47,56 +42,53 @@ public String findAllDonations(@RequestParam(name = "sort", defaultValue = "name
                                @RequestParam(name = "direction", defaultValue = "asc") String direction,
                                @RequestParam(name = "collected", required = false) Boolean collected,
                                @RequestParam(name = "userEmail", required = false) String userEmail,
-                            //   @RequestParam(name = "page", defaultValue = "0") int page,
-                            //   @RequestParam(name = "size", defaultValue = "10") int size,
+                               @RequestParam(name = "page", defaultValue = "0") int page,
+                               @RequestParam(name = "size", defaultValue = "10") int size,
                                Model model) {
-   // Pageable pageable = PageRequest.of(page, size);
-  // Page<Donation> donationsPage;
-    Collection<Donation> donations;
+    Pageable pageable = PageRequest.of(page, size);
+    Page<Donation> donations;
     if (collected != null) {
-        donations = donationService.findAllByCollected(collected);
-       // donationsPage = donationService.findAllByCollected(collected, pageable);
+        donations = donationService.findAllByCollected(collected,pageable);
+
     } else if (userEmail != null && !userEmail.isEmpty()) {
-            donations = donationService.findByUserEmailContaining(userEmail);
-        //    donationsPage = donationService.findByUserEmailContaining(userEmail, pageable);
+            donations = donationService.findByUserEmailContaining(userEmail, pageable);
+
         } else {
             switch (sort) {
                 case "name" -> {
                     if (direction.equals("asc")) {
-                        donations = donationService.findAllSortedByNameAsc();
+                        donations = donationService.findAllSortedByNameAsc(pageable);
                     } else {
-                        donations = donationService.findAllSortedByNameDesc();
+                        donations = donationService.findAllSortedByNameDesc(pageable);
                     }
                 }
                 case "quantity" -> {
                     if (direction.equals("asc")) {
-                        donations = donationService.findAllSortedByQuantityAsc();
+                        donations = donationService.findAllSortedByQuantityAsc(pageable);
                     } else {
-                        donations = donationService.findAllSortedByQuantityDesc();
+                        donations = donationService.findAllSortedByQuantityDesc(pageable);
                     }
                 }
                 case "pickUpDate" -> {
                     if (direction.equals("asc")) {
-                        donations = donationService.findAllSortedByPickupDateAsc();
+                        donations = donationService.findAllSortedByPickupDateAsc(pageable);
                     } else {
-                        donations = donationService.findAllSortedByPickupDesc();
+                        donations = donationService.findAllSortedByPickupDesc(pageable);
                     }
                 }
                 case "user" -> {
                     if (direction.equals("asc")) {
-                        donations = donationService.findAllSortedByUserAsc();
+                        donations = donationService.findAllSortedByUserAsc(pageable);
                     } else {
-                        donations = donationService.findAllSortedByUserDesc();
+                        donations = donationService.findAllSortedByUserDesc(pageable);
                     }
                 }
-                default -> donations = donationService.findAll();
+                default -> donations = donationService.findAllSortedByUserAsc(pageable);
             }
         }
-
-           model.addAttribute("donations", donations);
-//        model.addAttribute("donations", donationsPage.getContent());
-//        model.addAttribute("currentPage", donationsPage.getNumber());
-//        model.addAttribute("totalPages", donationsPage.getTotalPages());
+        model.addAttribute("donations", donations.getContent());
+        model.addAttribute("currentPage", donations.getNumber());
+        model.addAttribute("totalPages", donations.getTotalPages());
         return "donationView/donationsIndex";
     }
 

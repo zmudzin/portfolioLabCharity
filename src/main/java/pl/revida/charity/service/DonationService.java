@@ -1,5 +1,7 @@
 package pl.revida.charity.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.revida.charity.entity.Donation;
 import pl.revida.charity.repository.DonationRepository;
@@ -31,40 +33,40 @@ public class DonationService {
         return donationRepository.save(donation);
     }
 
-    public Collection<Donation> findAll(){return donationRepository.findAll();}
+    public List<Donation> findAll(){return donationRepository.findAll();}
     public Donation findById(long id){return donationRepository.findById(id);}
-    public List<Donation> getDonationsByUserId(long userId) {
-        return donationRepository.findAllByUserId(userId);
+    public Page<Donation> getDonationsByUserId(long userId, Pageable pageable) {
+        return donationRepository.findAllByUserId(userId, pageable);
     }
-    public List<Donation> findAllSortedByNameAsc() {
-        return donationRepository.findAllByOrderByInstitutionNameAsc();
+    public Page<Donation> findAllSortedByNameAsc(Pageable pageable) {
+        return donationRepository.findAllByOrderByInstitutionNameAsc(pageable);
     }
-    public List<Donation> findAllSortedByNameDesc() {
-        return donationRepository.findAllByOrderByInstitutionNameDesc();
+    public Page<Donation> findAllSortedByNameDesc(Pageable pageable) {
+        return donationRepository.findAllByOrderByInstitutionNameDesc(pageable);
     }
-    public List<Donation> findAllSortedByQuantityAsc() {
-        return donationRepository.findAllByOrderByQuantityAsc();
+    public Page<Donation> findAllSortedByQuantityAsc(Pageable pageable) {
+        return donationRepository.findAllByOrderByQuantityAsc(pageable);
     }
-    public List<Donation> findAllSortedByQuantityDesc() {
-        return donationRepository.findAllByOrderByQuantityDesc();
+    public Page<Donation> findAllSortedByQuantityDesc(Pageable pageable) {
+        return donationRepository.findAllByOrderByQuantityDesc(pageable);
     }
-    public List<Donation> findAllSortedByPickupDateAsc() {
-        return donationRepository.findAllByOrderByPickUpDateAsc();
+    public Page<Donation> findAllSortedByPickupDateAsc(Pageable pageable) {
+        return donationRepository.findAllByOrderByPickUpDateAsc(pageable);
     }
-    public List<Donation> findAllSortedByPickupDesc() {
-        return donationRepository.findAllByOrderByPickUpDateDesc();
+    public Page<Donation> findAllSortedByPickupDesc(Pageable pageable) {
+        return donationRepository.findAllByOrderByPickUpDateDesc(pageable);
     }
-    public List<Donation> findAllSortedByUserAsc() {
-        return donationRepository.findAllByOrderByUserAsc();
+    public Page<Donation> findAllSortedByUserAsc(Pageable pageable) {
+        return donationRepository.findAllByOrderByUserAsc(pageable);
     }
-    public List<Donation> findAllSortedByUserDesc() {
-        return donationRepository.findAllByOrderByUserDesc();
+    public Page<Donation> findAllSortedByUserDesc(Pageable pageable) {
+        return donationRepository.findAllByOrderByUserDesc(pageable);
     }
-    public List<Donation> findAllByCollected(boolean collected) {
-        return donationRepository.findAllByCollected(collected);
+    public Page<Donation> findAllByCollected(boolean collected, Pageable pageable) {
+        return donationRepository.findAllByCollected(collected,pageable);
     }
-    public List<Donation> findByUserEmailContaining(String userEmail) {
-        return donationRepository.findByUserEmailContaining(userEmail);
+    public Page<Donation> findByUserEmailContaining(String userEmail,Pageable pageable) {
+        return donationRepository.findByUserEmailContaining(userEmail,pageable);
     }
 
 

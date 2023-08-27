@@ -23,10 +23,10 @@ import java.util.Collection;
 @Controller
 public class FormController {
 
-    private DonationService donationService;
-    private CategoryService categoryService;
-    private InstitutionService institutionService;
-    private UserService userService;
+    private final DonationService donationService;
+    private final CategoryService categoryService;
+    private final InstitutionService institutionService;
+    private final UserService userService;
 
     public FormController(CategoryService categoryService, InstitutionService institutionService, DonationService donationService, UserService userService) {
         this.categoryService = categoryService;

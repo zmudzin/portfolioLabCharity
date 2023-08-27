@@ -16,7 +16,6 @@ import java.util.Collection;
 
 @Controller
 public class AdminInstitutionsController {
-
     private final InstitutionService institutionService;
     private final DonationService donationService;
 

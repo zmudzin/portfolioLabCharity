@@ -57,7 +57,7 @@
                         }
                         .filter-container {
                             display: inline-block;
-                            vertical-align: middle; /* Dopasowanie wertykalne do przycisku */
+                            vertical-align: middle;
                         }
 
                         .filter-form {
@@ -67,6 +67,21 @@
                         .show-all-button {
                             display: inline-block;
                             margin-left: 10px; /* Odstęp między formularzem a przyciskiem */
+                        }
+                        .page-link {
+                            display: inline-block;
+                            padding: 5px 10px;
+                            margin: 2px;
+                            border: 1px solid #ccc;
+                            background-color: #f2f2f2;
+                            color: #333;
+                            text-decoration: none;
+                        }
+
+                        .current-page {
+                            font-weight: bold;
+                            background-color: #333;
+                            color: #fff;
                         }
                     </style>
                     <th>
@@ -130,9 +145,27 @@
                         </c:forEach>
                         </tbody>
                     </table>
-                        </tbody>
-                    </table>
                 </div>
+            </div>
+            <div class="pagination">
+                <c:if test="${currentPage > 0}">
+                    <a href="?page=${currentPage - 1}&size=${pageSize}" class="page-link">Previous</a>
+                </c:if>
+
+                <c:forEach begin="0" end="${totalPages - 1}" varStatus="loop">
+                    <c:choose>
+                        <c:when test="${loop.index == currentPage}">
+                            <span class="current-page">${loop.index + 1}</span>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="?page=${loop.index}&size=${pageSize}" class="page-link">${loop.index + 1}</a>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+
+                <c:if test="${currentPage < totalPages - 1}">
+                    <a href="?page=${currentPage + 1}&size=${pageSize}" class="page-link">Next</a>
+                </c:if>
             </div>
         </div>
     </div>

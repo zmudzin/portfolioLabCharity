@@ -1,6 +1,8 @@
 package pl.revida.charity.repository;
 
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import pl.revida.charity.entity.Donation;
@@ -15,18 +17,16 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
     Optional<Long> totalQuantity();
     List<Donation> findAll();
     Donation findById(long id);
-    List<Donation> findAllByUserId(long id);
-    List<Donation> findAllByOrderByInstitutionNameAsc();
-    List<Donation> findAllByOrderByInstitutionNameDesc();
-    List<Donation> findAllByOrderByQuantityAsc();
-    List<Donation> findAllByOrderByQuantityDesc();
-    List<Donation> findAllByOrderByPickUpDateAsc();
-    List<Donation> findAllByOrderByPickUpDateDesc();
-    List<Donation> findAllByOrderByUserAsc();
-    List<Donation> findAllByOrderByUserDesc();
-    List<Donation> findAllByCollected(@NotNull boolean collected);
-    List<Donation> findByUserEmailContaining(String username);
-
-
+    Page<Donation> findAllByUserId(long id, Pageable pageable);
+    Page<Donation> findAllByOrderByInstitutionNameAsc(Pageable pageable);
+    Page<Donation> findAllByOrderByInstitutionNameDesc(Pageable pageable);
+    Page<Donation> findAllByOrderByQuantityAsc(Pageable pageable);
+    Page<Donation> findAllByOrderByQuantityDesc(Pageable pageable);
+    Page<Donation> findAllByOrderByPickUpDateAsc(Pageable pageable);
+    Page<Donation> findAllByOrderByPickUpDateDesc(Pageable pageable);
+    Page<Donation> findAllByOrderByUserAsc(Pageable pageable);
+    Page<Donation> findAllByOrderByUserDesc(Pageable pageable);
+    Page<Donation> findAllByCollected(@NotNull boolean collected, Pageable pageable);
+    Page<Donation> findByUserEmailContaining(String username,Pageable pageable);
 
 }

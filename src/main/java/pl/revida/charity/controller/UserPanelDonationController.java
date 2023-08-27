@@ -1,5 +1,7 @@
 package pl.revida.charity.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,8 +23,8 @@ import java.util.Collection;
 public class UserPanelDonationController {
     private final UserService userService;
     private final DonationService donationService;
-    private CategoryService categoryService;
-    private InstitutionService institutionService;
+    private final CategoryService categoryService;
+    private final InstitutionService institutionService;
 
     public UserPanelDonationController(UserService userService, DonationService donationService, CategoryService categoryService, InstitutionService institutionService) {
         this.userService = userService;
@@ -33,9 +35,9 @@ public class UserPanelDonationController {
 
 
     @ModelAttribute("donations")
-    public Collection<Donation> donations(Principal principal) {
+    public Page<Donation> donations(Principal principal, Pageable pageable) {
        User user = userService.findByEmail(principal.getName());
-        return this.donationService.getDonationsByUserId(user.getId());
+        return this.donationService.getDonationsByUserId(user.getId(),pageable);
     }
     @ModelAttribute("institutions")
     public Collection<Institution> institutions() {
