@@ -44,10 +44,16 @@ public class AdminUserController {
     }
 
     @RequestMapping("/admin/users")
-    public String findAllUsers() {
-        return "userView/userIndexAdmin";
-    }
+    public String findAllUsers( @RequestParam(name = "email", required = false) String email,
+                                Model model) {
+        Collection<User> users;
 
+        if (email != null && !email.isEmpty()) {
+            users = userService.findByEmailContaining(email);
+            model.addAttribute("users", users);
+        }
+            return "userView/userIndexAdmin";
+    }
     @RequestMapping("/admin/users/{id}")
     public String getUser(Model model, @PathVariable long id) {
         User user = userService.findById(id);

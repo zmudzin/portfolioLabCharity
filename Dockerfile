@@ -1,4 +1,4 @@
-# Pobieranie oficjalnego obrazu Javy 16
+# Pobieranie oficjalnego obrazu Javy 17
 FROM openjdk:17-alpine
 
 # Ustawienie katalogu roboczego w kontenerze

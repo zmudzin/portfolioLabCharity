@@ -31,10 +31,40 @@ public class DonationService {
         return donationRepository.save(donation);
     }
 
-public Collection<Donation> findAll(){return donationRepository.findAll();}
+    public Collection<Donation> findAll(){return donationRepository.findAll();}
     public Donation findById(long id){return donationRepository.findById(id);}
     public List<Donation> getDonationsByUserId(long userId) {
         return donationRepository.findAllByUserId(userId);
+    }
+    public List<Donation> findAllSortedByNameAsc() {
+        return donationRepository.findAllByOrderByInstitutionNameAsc();
+    }
+    public List<Donation> findAllSortedByNameDesc() {
+        return donationRepository.findAllByOrderByInstitutionNameDesc();
+    }
+    public List<Donation> findAllSortedByQuantityAsc() {
+        return donationRepository.findAllByOrderByQuantityAsc();
+    }
+    public List<Donation> findAllSortedByQuantityDesc() {
+        return donationRepository.findAllByOrderByQuantityDesc();
+    }
+    public List<Donation> findAllSortedByPickupDateAsc() {
+        return donationRepository.findAllByOrderByPickUpDateAsc();
+    }
+    public List<Donation> findAllSortedByPickupDesc() {
+        return donationRepository.findAllByOrderByPickUpDateDesc();
+    }
+    public List<Donation> findAllSortedByUserAsc() {
+        return donationRepository.findAllByOrderByUserAsc();
+    }
+    public List<Donation> findAllSortedByUserDesc() {
+        return donationRepository.findAllByOrderByUserDesc();
+    }
+    public List<Donation> findAllByCollected(boolean collected) {
+        return donationRepository.findAllByCollected(collected);
+    }
+    public List<Donation> findByUserEmailContaining(String userEmail) {
+        return donationRepository.findByUserEmailContaining(userEmail);
     }
 
 

@@ -6,7 +6,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <h1 class="h3 mb-0 text-gray-800">Users</h1>
         <a href="/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Back to main site</a>
     </div>
@@ -21,11 +21,24 @@
                 <!-- Card Header - Dropdown -->
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+                    <!-- Topbar Search -->
+                    <form action="${pageContext.request.contextPath}/admin/users" method="get" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for user..." name="email" aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <a href="/admin/users" class="show-all-button"><button>Pokaż wszystkich</button></a>
                 </div>
+
                 <style>
                     table {
-                        width: 100%;
+                        width: 60%;
                         border-collapse: collapse;
                         margin-bottom: 20px;
                     }
@@ -45,6 +58,7 @@
                 </style>
                 <!-- Card Body -->
                 <div class="card-body">
+
                     <table>
                         <thead>
                         <tr>

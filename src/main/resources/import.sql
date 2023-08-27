@@ -34,9 +34,9 @@ INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date
 
 INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (5, 'Flower Street 5', 'Warsaw', false, '01-234', '2024-06-01', '10:00:00', 'Please contact before arrival.', 2, 2);
 
-INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (3, 'Main Street 10', 'Berlin', false, '12-345', '2024-06-02', '12:00:00', 'Please confirm in advance.', 1, 1);
+INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (3, 'Main Street 10', 'Berlin', true, '12-345', '2024-06-02', '12:00:00', 'Please confirm in advance.', 1, 1);
 
-INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (7, 'Pomeranian Street 8', 'Gdansk', false, '45-678', '2024-06-03', '15:00:00', 'Please leave at the concierge.', 3, 1);
+INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (7, 'Pomeranian Street 8', 'Gdansk', true, '45-678', '2024-06-03', '15:00:00', 'Please leave at the concierge.', 3, 1);
 
 INSERT INTO donations (quantity, street, city, collected, zip_code, pick_up_date, pick_up_time, pick_up_comment, institution_id, user_id) VALUES (2, 'School Street 3', 'Poznan', false, '90-123', '2024-06-04', '14:00:00', 'Please confirm receipt.', 1, 2);
 
