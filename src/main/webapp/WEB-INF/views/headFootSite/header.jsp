@@ -44,7 +44,7 @@
             <li><a href="${pageContext.request.contextPath}/#stepsTarget" class="btn btn--without-border">What is going on?</a></li>
             <li><a href="${pageContext.request.contextPath}/#aboutUsTarget" class="btn btn--without-border">About us</a></li>
             <li><a href="${pageContext.request.contextPath}/#helpTarget" class="btn btn--without-border">Foundations and organizations</a></li>
-            <li><a href="${pageContext.request.contextPath}/form#scrollTarget" class="btn btn--without-border">Give gifts</a></li>
+            <li><a href="${pageContext.request.contextPath}/form#scrollTarget" class="btn btn--without-border">Donate gifts</a></li>
             <li><a href="${pageContext.request.contextPath}/#contactTarget" class="btn btn--without-border">Contact</a></li>
         </ul>
     </nav>
